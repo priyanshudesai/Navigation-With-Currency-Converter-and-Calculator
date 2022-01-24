@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.pd.currencyconverter.databinding.ActivityNavigationBinding
 import com.pd.currencyconverter.ui.calculator.CalculatorFragment
+import com.pd.currencyconverter.ui.cardlist.CardListFragment
 import com.pd.currencyconverter.ui.currencyconverter.CurrencyConverterFragment
 
 class NavigationActivity : AppCompatActivity() {
@@ -93,6 +94,7 @@ class NavigationActivity : AppCompatActivity() {
         val fragmentClass: Class<*> = when (menuItem.itemId) {
             R.id.nav_currencyConverter -> CurrencyConverterFragment::class.java
             R.id.nav_calculator -> CalculatorFragment::class.java
+            R.id.nav_cardHolder -> CardListFragment::class.java
             else -> CurrencyConverterFragment::class.java
         }
         try {

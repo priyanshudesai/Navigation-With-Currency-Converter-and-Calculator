@@ -11,6 +11,10 @@
         <item
             android:id="@+id/nav_calculator"
             android:icon="@drawable/ic_calculator"
-            android:title="@string/menu_Calculator" />
+            android:title="@string/menu_calculator" />
+        <item
+            android:id="@+id/nav_cardHolder"
+            android:icon="@drawable/ic_people"
+            android:title="@string/menu_cardHolder" />
     </group>
 </menu>

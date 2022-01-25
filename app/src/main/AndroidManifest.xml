@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CurrencyConverter">
         <activity
-            android:name=".CardDetailsActivity"
+            android:name=".ui.cardlist.CardDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".NavigationActivity"

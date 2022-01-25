@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:overScrollMode="never"
-    tools:context=".CardDetailsActivity">
+    tools:context=".ui.cardlist.CardDetailsActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
-                android:alpha="0.2"
+                android:alpha="0.07"
                 android:layout_gravity="end"
                 android:background="@drawable/card_img_background" />
 
@@ -35,7 +35,6 @@
                 android:layout_height="220dp"
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
-                android:background="#f2f2f2"
                 android:src="@drawable/ic_people"
                 app:layout_constraintDimensionRatio="h,9:16"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -57,28 +56,50 @@
                 android:id="@+id/tv_status_cardDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="PO"
                 android:textColor="@color/purple_500"
                 android:textSize="14sp"
                 android:textStyle="bold"
+                app:layout_constrainedWidth="true"
                 app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/textView5"
-                app:layout_constraintTop_toTopOf="@+id/textView5" />
+                app:layout_constraintTop_toTopOf="@+id/textView5"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Created at :"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/textView5"
+                app:layout_constraintTop_toBottomOf="@+id/tv_status_cardDetails" />
 
             <TextView
                 android:id="@+id/tv_createdAt_cardDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="10 December 2021"
                 android:textColor="@color/purple_500"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/textView5"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="@+id/textView15"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/textView15"
+                app:layout_constraintTop_toTopOf="@+id/textView15"
+                app:layout_constraintVertical_bias="0.0" />
 
             <View
                 android:id="@+id/view3"

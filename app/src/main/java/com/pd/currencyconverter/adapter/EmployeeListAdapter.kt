@@ -11,7 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.pd.currencyconverter.CardDetailsActivity
+import com.pd.currencyconverter.ui.cardlist.CardDetailsActivity
 import com.pd.currencyconverter.R
 import com.pd.currencyconverter.dataclass.Data
 

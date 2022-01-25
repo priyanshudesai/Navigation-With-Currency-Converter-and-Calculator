@@ -26,7 +26,6 @@ class CurrencyConverterFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentCurrencyConverterBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val aa: ArrayAdapter<*> =

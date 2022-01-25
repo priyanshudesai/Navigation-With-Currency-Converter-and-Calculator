@@ -1,5 +1,6 @@
 package com.pd.currencyconverter
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -63,18 +64,20 @@ class NavigationActivity : AppCompatActivity() {
         drawerToggle!!.syncState()
         drawerLayout.addDrawerListener(drawerToggle!!)
 
-        //Initializing first fragment
-        val fragmentClass: Class<*> = CurrencyConverterFragment::class.java
-        val fragment: Fragment = fragmentClass.newInstance() as Fragment
-        val fragmentManager: FragmentManager = supportFragmentManager
-        fragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_content_navigation, fragment).commit()
+//        //Initializing first fragment
+//        val fragmentClass: Class<*> = CurrencyConverterFragment::class.java
+//        val fragment: Fragment = fragmentClass.newInstance() as Fragment
+//        val fragmentManager: FragmentManager = supportFragmentManager
+//        fragmentManager.beginTransaction()
+//            .replace(R.id.nav_host_fragment_content_navigation, fragment).commit()
+
 
 
         if (savedInstanceState == null) {
             binding.navView.menu.performIdentifierAction(R.id.nav_currencyConverter, 0)
             title = navView.menu.getItem(0).title
         }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -111,6 +114,4 @@ class NavigationActivity : AppCompatActivity() {
         title = menuItem.title
         drawerLayout.closeDrawers()
     }
-
-
 }

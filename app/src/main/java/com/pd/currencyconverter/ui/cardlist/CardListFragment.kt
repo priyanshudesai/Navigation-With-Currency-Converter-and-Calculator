@@ -120,5 +120,4 @@ class CardListFragment : Fragment() {
             binding.tvTotalCardFrag.text = filteredList.size.toString() + " Cards total"
         } else Toast.makeText(context, "No Data Found..", Toast.LENGTH_SHORT).show()
     }
-
 }

@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/card_call_button.xml" value="0.25833333333333336" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/card_call_button_background.xml" value="0.25833333333333336" />
+        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/card_ripple_effect.xml" value="0.17864583333333334" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/card_text_background.xml" value="0.25435897435897437" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/circle_drawable_background_text.xml" value="0.25435897435897437" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/ic_people.xml" value="0.15833333333333333" />
@@ -20,6 +21,7 @@
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/layout_contact_info_card_details.xml" value="0.22962962962962963" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/view_bar_navigation.xml" value="0.2" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/view_contact_info_card_details.xml" value="0.2421875" />
+        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/view_content_navigation.xml" value="0.1796875" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/menu/menu_main_drawer.xml" value="0.20816326530612245" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/menu/menu_search.xml" value="0.2421875" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/app/src/main/res/layout/activity_main.xml" value="0.2421875" />

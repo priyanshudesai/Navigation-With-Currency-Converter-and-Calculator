@@ -83,7 +83,6 @@ class CardDetailsActivity : AppCompatActivity() {
         }
         if (emailList.isEmpty()){
             binding.cardContactInfoDetails.tvEmailCardDetails.text = "N/A"
-
         }
 
         binding.cardCompanyInfoDetails.tvNameCompanyDetails.text =

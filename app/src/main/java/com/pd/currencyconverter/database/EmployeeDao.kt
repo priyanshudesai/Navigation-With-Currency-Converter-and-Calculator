@@ -8,9 +8,6 @@ interface EmployeeDao {
     @Query("SELECT * FROM cardInformation ")
     fun getAllEmployees():List<EmployeeEntity>?
 
-//    @Query("SELECT * FROM movieinfo ")
-//    fun getAllMovies():LiveData<List<MovieEntity>>
-
     @Insert
     fun insertEmployee(employee: EmployeeEntity?)
 

@@ -5,25 +5,27 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.pd.currencyconverter.R
 import com.pd.currencyconverter.adapter.EmployeeListAdapter
 import com.pd.currencyconverter.api.Api
 import com.pd.currencyconverter.api.ApiClient
+import com.pd.currencyconverter.dataclass.EmployeeEntity
 import com.pd.currencyconverter.databinding.FragmentCardListBinding
-import com.pd.currencyconverter.dataclass.Data
-import com.pd.currencyconverter.dataclass.EmployeeListDataClass
+import com.pd.currencyconverter.dataclass.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.Exception
-import java.util.*
 
 
 class CardListFragment : Fragment() {
     private var _binding: FragmentCardListBinding? = null
     private val binding get() = _binding!!
-    var listEmployee: List<Data>? = null
+    var listEmployee: List<EmployeeEntity>? = null
     var listAdapter: EmployeeListAdapter? = null
+    lateinit var cardListViewModel: CardListViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +34,28 @@ class CardListFragment : Fragment() {
         _binding = FragmentCardListBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        cardListViewModel = ViewModelProvider(requireActivity()).get(CardListViewModel::class.java)
+        cardListViewModel.getAllEmployeeObservers().observe(viewLifecycleOwner, Observer {
+
+            listEmployee = it
+            listAdapter = activity?.let { it1 ->
+                EmployeeListAdapter(
+                    it1,
+                    listEmployee
+                )
+            }
+            binding.rvCardFrag.adapter = listAdapter
+            binding.rvCardFrag.adapter?.notifyDataSetChanged()
+
+            if(listEmployee?.isNotEmpty() == true){
+                binding.tvTotalCardFrag.text = listEmployee?.size.toString() + " Cards total"
+
+                binding.pbCard.visibility = View.GONE
+                binding.tvTotalCardFrag.visibility = View.VISIBLE
+                binding.rvCardFrag.visibility = View.VISIBLE
+
+            }
+        })
         loadListEmployee()
         return root
     }
@@ -70,12 +94,13 @@ class CardListFragment : Fragment() {
                     if (response.body()?.success == true) {
                         listEmployee = response.body()!!.data
 //                        Collections.reverse(listEmployee)
-                        listAdapter =
-                            activity?.let { EmployeeListAdapter(it, listEmployee) }
-                        binding.rvCardFrag.adapter = listAdapter
-                        binding.tvTotalCardFrag.text = listEmployee?.size.toString() + " Cards total"
+//                        listAdapter =
+//                            activity?.let { EmployeeListAdapter(it, listEmployee) }
+                        cardListViewModel.insertEmployeesInfo(listEmployee!!)
 
                         binding.pbCard.visibility = View.GONE
+
+                        binding.tvTotalCardFrag.text = listEmployee?.size.toString() + " Cards total"
                         binding.tvTotalCardFrag.visibility = View.VISIBLE
                         binding.rvCardFrag.visibility = View.VISIBLE
                     } else {
@@ -102,13 +127,13 @@ class CardListFragment : Fragment() {
 
     private fun filter(text: String) {
         if (listEmployee != null && listEmployee?.isNotEmpty() == true) {
-            val filteredList: List<Data> =
+            val filteredList: List<EmployeeEntity> =
                 listEmployee!!.filter {
                         item ->
                     item.first_name.trim().lowercase().startsWith(text.lowercase()) ||
                     item.last_name.trim().lowercase().startsWith(text.lowercase())  ||
                     item.designation.trim().lowercase().startsWith(text.lowercase())  ||
-                    item.company.name.trim().lowercase().startsWith(text.lowercase())
+                    item.company_info.name.trim().lowercase().startsWith(text.lowercase())
                 }
 
             if (filteredList.isEmpty()) {
@@ -118,6 +143,57 @@ class CardListFragment : Fragment() {
                 listAdapter?.filterList(filteredList)
             }
             binding.tvTotalCardFrag.text = filteredList.size.toString() + " Cards total"
-        } else Toast.makeText(context, "No Data Found..", Toast.LENGTH_SHORT).show()
+        } else Toast.makeText(context, "No Data Found", Toast.LENGTH_SHORT).show()
     }
+
+//    fun dataToEntity(list : List<Data>): List<EmployeeEntity>{
+//        val entityList : List<EmployeeEntity>
+//        entityList = ArrayList()
+//        list.forEachIndexed { index, data ->
+//            entityList[index] = EmployeeEntity(
+//                created_at = data.created_at,
+//                designation = data.designation,
+//                emails = data.emails,
+//                first_name = data.first_name,
+//                is_decisionmaker = data.is_decisionmaker,
+//                last_name = data.last_name,
+//                phones = data.phones,
+//                status = data.status,
+//                tags = data.tags,
+//                type = data.type,
+//                address = data.company_info.address,
+//                campaign_email = data.company_info.campaign_email,
+//                email = data.company_info.email,
+//                name = data.company_info.name,
+//                phone_number = data.company_info.phone_number,
+//                website = data.company_info.website,
+//                industry_name = data.company_info.industry_name,
+//                original = data.card.front.original,
+//                small = data.card.front.small,
+//            )
+//        }
+//        return entityList
+//    }
+//
+//    fun entityToData(entityList : List<EmployeeEntity>): List<Data>{
+//        val list : List<Data>
+//        list = ArrayList()
+//        entityList.forEachIndexed { index, data ->
+//            list[index] = Data(
+//                created_at = data.created_at,
+//                designation = data.designation,
+//                emails = data.emails,
+//                first_name = data.first_name,
+//                is_decisionmaker = data.is_decisionmaker,
+//                last_name = data.last_name,
+//                phones = data.phones,
+//                status = data.status,
+//                tags = data.tags,
+//                type = data.type,
+//                card = Card(front = Front(original = data.original, small = data.small)),
+//                company_info = CompanyInfo(address = data.address,campaign_email = data.campaign_email,email = data.email,industry_name = data.industry_name,name = data.name,phone_number = data.phone_number,website = data.website)
+//            )
+//        }
+//        return list
+//    }
 }

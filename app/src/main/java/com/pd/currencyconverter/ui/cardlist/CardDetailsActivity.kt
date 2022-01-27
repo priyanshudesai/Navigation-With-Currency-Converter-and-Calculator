@@ -11,8 +11,8 @@ import androidx.core.content.res.ResourcesCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.pd.currencyconverter.R
+import com.pd.currencyconverter.dataclass.EmployeeEntity
 import com.pd.currencyconverter.databinding.ActivityCardDetailsBinding
-import com.pd.currencyconverter.dataclass.Data
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -28,7 +28,7 @@ class CardDetailsActivity : AppCompatActivity() {
 
         title = "Test Card"
 
-        val data: Data = intent.getSerializableExtra("data") as Data
+        val data: EmployeeEntity = intent.getSerializableExtra("data") as EmployeeEntity
 
         val requestOptions = RequestOptions()
         requestOptions.placeholder(R.drawable.ic_placeholder)

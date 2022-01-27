@@ -13,9 +13,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.pd.currencyconverter.ui.cardlist.CardDetailsActivity
 import com.pd.currencyconverter.R
-import com.pd.currencyconverter.dataclass.Data
+import com.pd.currencyconverter.dataclass.EmployeeEntity
 
-class EmployeeListAdapter(mContext: Context, private var listEmployee: List<Data>?) :
+class EmployeeListAdapter(mContext: Context, private var listEmployee: List<EmployeeEntity>?) :
     RecyclerView.Adapter<EmployeeListAdapter.ViewHolder>() {
 
     var mContext: Context = mContext
@@ -38,11 +38,11 @@ class EmployeeListAdapter(mContext: Context, private var listEmployee: List<Data
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val empData: Data? = listEmployee?.get(position)
+        val empData: EmployeeEntity? = listEmployee?.get(position)
 
         holder.nameEmployee.text = empData?.first_name+" "+empData?.last_name
         holder.designationEmployee.text = empData?.designation
-        holder.nameCompany.text = empData?.company?.name
+        holder.nameCompany.text = empData?.company_info?.name
 
         val requestOptions = RequestOptions()
         requestOptions.placeholder(R.drawable.ic_placeholder)
@@ -57,10 +57,11 @@ class EmployeeListAdapter(mContext: Context, private var listEmployee: List<Data
         return listEmployee!!.size
     }
 
-    fun filterList(filterList: List<Data>?) {
+    fun filterList(filterList: List<EmployeeEntity>?) {
         listEmployee = filterList
         notifyDataSetChanged()
     }
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var nameEmployee: TextView = itemView.findViewById(R.id.tv_name_cardHolder)

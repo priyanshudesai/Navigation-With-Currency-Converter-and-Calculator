@@ -4,4 +4,4 @@ import java.io.Serializable
 
 data class Card(
     val front: Front
-): Serializable
+) : Serializable

@@ -3,8 +3,8 @@ package com.pd.currencyconverter.ui.cardlist
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.pd.currencyconverter.dataclass.EmployeeEntity
 import com.pd.currencyconverter.database.RoomAppDb
+import com.pd.currencyconverter.dataclass.EmployeeEntity
 
 class CardListViewModel(application: Application) : AndroidViewModel(application) {
     var allEmployee: MutableLiveData<List<EmployeeEntity>> = MutableLiveData()
@@ -25,27 +25,27 @@ class CardListViewModel(application: Application) : AndroidViewModel(application
 
     }
 
-    fun insertEmployeeInfo(entity: EmployeeEntity) {
-        val employeeDao = RoomAppDb.getAppDatabase((getApplication()))?.employeeDao()
-        employeeDao?.insertEmployee(entity)
-        getAllEmployee()
-    }
-
     fun insertEmployeesInfo(entity: List<EmployeeEntity>) {
         val employeeDao = RoomAppDb.getAppDatabase((getApplication()))?.employeeDao()
         employeeDao?.insertEmployees(entity)
         getAllEmployee()
     }
 
-    fun deleteEmployeeInfo(entity: EmployeeEntity) {
-        val employeeDao = RoomAppDb.getAppDatabase((getApplication()))?.employeeDao()
-        employeeDao?.deleteEmployee(entity)
-        getAllEmployee()
-    }
-
-    fun updateEmployeeInfo(entity: EmployeeEntity) {
-        val employeeDao = RoomAppDb.getAppDatabase((getApplication()))?.employeeDao()
-        employeeDao?.updateEmployee(entity)
-        getAllEmployee()
-    }
+//    fun insertEmployeeInfo(entity: EmployeeEntity) {
+//        val employeeDao = RoomAppDb.getAppDatabase((getApplication()))?.employeeDao()
+//        employeeDao?.insertEmployee(entity)
+//        getAllEmployee()
+//    }
+//
+//    fun deleteEmployeeInfo(entity: EmployeeEntity) {
+//        val employeeDao = RoomAppDb.getAppDatabase((getApplication()))?.employeeDao()
+//        employeeDao?.deleteEmployee(entity)
+//        getAllEmployee()
+//    }
+//
+//    fun updateEmployeeInfo(entity: EmployeeEntity) {
+//        val employeeDao = RoomAppDb.getAppDatabase((getApplication()))?.employeeDao()
+//        employeeDao?.updateEmployee(entity)
+//        getAllEmployee()
+//    }
 }

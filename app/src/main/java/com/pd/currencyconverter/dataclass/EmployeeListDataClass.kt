@@ -6,4 +6,4 @@ data class EmployeeListDataClass(
     val `data`: List<EmployeeEntity>,
     val message: String,
     val success: Boolean
-): Serializable
+) : Serializable

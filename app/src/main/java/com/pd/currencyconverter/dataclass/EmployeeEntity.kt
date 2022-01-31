@@ -1,14 +1,14 @@
 package com.pd.currencyconverter.dataclass
 
-import androidx.room.*
-import com.google.gson.annotations.SerializedName
-import com.pd.currencyconverter.dataclass.*
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.pd.currencyconverter.utils.ConstantUtils
 import java.io.Serializable
 
-@Entity(tableName = "cardInformation")
-data class EmployeeEntity (
+@Entity(tableName = ConstantUtils.TABLE_NAME_CARD_INFORMATION)
+data class EmployeeEntity(
     @PrimaryKey(autoGenerate = false)
-    val id:Int=0,
+    val id: Int = 0,
     val created_at: String,
     val designation: String,
     val emails: List<Email>,
@@ -21,7 +21,7 @@ data class EmployeeEntity (
     val type: String,
     val card: Card,
     val company_info: CompanyInfo,
-): Serializable
+) : Serializable
 
 
 

@@ -3,7 +3,6 @@ package com.pd.currencyconverter.ui.calculator
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -75,11 +74,8 @@ class CalculatorFragment : Fragment(), TextWatcher {
     }
 
     override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        Log.e("text change", "onTextChanged: $p0")
         calculate(binding.tvShowOperator.text.toString())
     }
 
-    override fun afterTextChanged(p0: Editable?) {
-
-    }
+    override fun afterTextChanged(p0: Editable?) {}
 }

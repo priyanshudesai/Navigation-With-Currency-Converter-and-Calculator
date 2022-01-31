@@ -5,8 +5,39 @@
     <string name="menu_currencyConverter">Currency Converter</string>
     <string name="menu_calculator">Calculator</string>
     <string name="menu_cardHolder">Card Holder</string>
+    <string name="menu_settings">Settings</string>
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="menu_search">Search</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
+    <string name="NA">N/A</string>
+    <string name="no_tags">NO TAGS</string>
+    <string name="cards_total">\ Cards total</string>
+    <string name="usd">USD</string>
+    <string name="aed">AED</string>
+    <string name="eur">EUR</string>
+    <string name="gbp">GBP</string>
+    <string name="aud">AUD</string>
+    <string name="cad">CAD</string>
+    <string name="account_type">Account Type :</string>
+    <string name="created_at">Created at :</string>
+    <string name="contact_info">Contact Info</string>
+    <string name="name">Name</string>
+    <string name="designation">Designation</string>
+    <string name="decision_maker">Decision Maker</string>
+    <string name="phone">Phone</string>
+    <string name="email">Email</string>
+
+    <string-array name="themes">
+        <item>Normal</item>
+        <item>Dark</item>
+        <item>Christmas</item>
+    </string-array>
+
+    <string name="def_theme">Normal</string>
+    <string name="theme_summary">Appearance</string>
+    <string name="theme_dialog_title">Theme</string>
+    <string name="settings">Settings</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.pd.currencyconverter
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -10,14 +9,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
-import com.pd.currencyconverter.databinding.ActivityNavigationBinding
+import com.pd.currencyconverter.ui.settings.SettingsFragment
 import com.pd.currencyconverter.ui.calculator.CalculatorFragment
 import com.pd.currencyconverter.ui.cardlist.CardListFragment
 import com.pd.currencyconverter.ui.currencyconverter.CurrencyConverterFragment
+import androidx.preference.PreferenceManager
+import com.pd.currencyconverter.databinding.ActivityNavigationBinding
+import com.pd.currencyconverter.utils.ConstantUtils
+import com.pd.currencyconverter.utils.ConstantUtils.KEY_THEME
+
 
 class NavigationActivity : AppCompatActivity() {
 
@@ -27,7 +30,30 @@ class NavigationActivity : AppCompatActivity() {
 
     private var drawerToggle: ActionBarDrawerToggle? = null
 
+    private var currentTheme = ConstantUtils.NORMAL
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        currentTheme = PreferenceManager.getDefaultSharedPreferences(this@NavigationActivity).getInt(KEY_THEME, ConstantUtils.NORMAL)
+        setTheme(currentTheme)
+//        val pref: SharedPreferences = PreferenceManager
+//            .getDefaultSharedPreferences(this)
+//        when (pref.getString("theme", "Christmas")) {
+//            "Normal" -> {
+//                setTheme(R.style.Theme_CurrencyConverter_NoActionBar)
+//            }
+//            "Dark" -> {
+//                Toast.makeText(this, "set theme Dark", Toast.LENGTH_SHORT).show()
+//                setTheme(R.style.Theme_CurrencyConverter_NoActionBar_Dark)
+//            }
+//            "Christmas" -> {
+//                Toast.makeText(this, "set theme Christmas", Toast.LENGTH_SHORT).show()
+//                setTheme(R.style.Theme_CurrencyConverter_NoActionBar_Christmas)
+//            }
+//            else -> {
+//                setTheme(R.style.Theme_CurrencyConverter_NoActionBar)
+//            }
+//        }
         super.onCreate(savedInstanceState)
 
         binding = ActivityNavigationBinding.inflate(layoutInflater)
@@ -71,18 +97,12 @@ class NavigationActivity : AppCompatActivity() {
 //        fragmentManager.beginTransaction()
 //            .replace(R.id.nav_host_fragment_content_navigation, fragment).commit()
 
-
-
         if (savedInstanceState == null) {
-            binding.navView.menu.performIdentifierAction(R.id.nav_currencyConverter, 0)
+            binding.navView.menu.performIdentifierAction(R.id.nav_currencyConverter,0)
             title = navView.menu.getItem(0).title
         }
 
-    }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_navigation)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -98,6 +118,7 @@ class NavigationActivity : AppCompatActivity() {
             R.id.nav_currencyConverter -> CurrencyConverterFragment::class.java
             R.id.nav_calculator -> CalculatorFragment::class.java
             R.id.nav_cardHolder -> CardListFragment::class.java
+            R.id.nav_settings -> SettingsFragment::class.java
             else -> CurrencyConverterFragment::class.java
         }
         try {

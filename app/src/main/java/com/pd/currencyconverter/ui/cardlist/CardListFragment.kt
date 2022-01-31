@@ -1,24 +1,26 @@
 package com.pd.currencyconverter.ui.cardlist
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
-import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.pd.currencyconverter.R
 import com.pd.currencyconverter.adapter.EmployeeListAdapter
 import com.pd.currencyconverter.api.Api
 import com.pd.currencyconverter.api.ApiClient
-import com.pd.currencyconverter.dataclass.EmployeeEntity
 import com.pd.currencyconverter.databinding.FragmentCardListBinding
-import com.pd.currencyconverter.dataclass.*
+import com.pd.currencyconverter.dataclass.EmployeeEntity
+import com.pd.currencyconverter.dataclass.EmployeeListDataClass
+import com.pd.currencyconverter.utils.ConstantUtils
+import com.pd.currencyconverter.utils.NetworkStatus
+import com.pd.currencyconverter.utils.NetworkStatusHelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.Exception
-
 
 class CardListFragment : Fragment() {
     private var _binding: FragmentCardListBinding? = null
@@ -47,8 +49,8 @@ class CardListFragment : Fragment() {
             binding.rvCardFrag.adapter = listAdapter
             binding.rvCardFrag.adapter?.notifyDataSetChanged()
 
-            if(listEmployee?.isNotEmpty() == true){
-                binding.tvTotalCardFrag.text = listEmployee?.size.toString() + " Cards total"
+            if (listEmployee?.isNotEmpty() == true) {
+                binding.tvTotalCardFrag.text = listEmployee?.size.toString() + getString(R.string.cards_total)
 
                 binding.pbCard.visibility = View.GONE
                 binding.tvTotalCardFrag.visibility = View.VISIBLE
@@ -56,7 +58,15 @@ class CardListFragment : Fragment() {
 
             }
         })
-        loadListEmployee()
+        NetworkStatusHelper(requireContext()).registerNetworkCallBack().observe(requireActivity(), {
+            when (it) {
+                NetworkStatus.Available -> {
+                    loadListEmployee()
+                    Log.e("TAG", "Network Connection Established")
+                }
+                NetworkStatus.Unavailable -> Log.e("TAG", "No Internet")
+            }
+        })
         return root
     }
 
@@ -92,28 +102,34 @@ class CardListFragment : Fragment() {
             ) {
                 try {
                     if (response.body()?.success == true) {
-                        listEmployee = response.body()!!.data
+                        Log.e("TAG", "API CALL")
+                        var newList: List<EmployeeEntity> = response.body()!!.data
 //                        Collections.reverse(listEmployee)
 //                        listAdapter =
 //                            activity?.let { EmployeeListAdapter(it, listEmployee) }
-                        cardListViewModel.insertEmployeesInfo(listEmployee!!)
+                        if (newList.size != listEmployee?.size) {
+                            Log.e("TAG", "Not equal size")
+                            listEmployee = newList
+                            cardListViewModel.insertEmployeesInfo(listEmployee!!)
 
-                        binding.pbCard.visibility = View.GONE
+                            binding.pbCard.visibility = View.GONE
 
-                        binding.tvTotalCardFrag.text = listEmployee?.size.toString() + " Cards total"
-                        binding.tvTotalCardFrag.visibility = View.VISIBLE
-                        binding.rvCardFrag.visibility = View.VISIBLE
+                            binding.tvTotalCardFrag.text =
+                                listEmployee?.size.toString() + " Cards total"
+                            binding.tvTotalCardFrag.visibility = View.VISIBLE
+                            binding.rvCardFrag.visibility = View.VISIBLE
+                        }
                     } else {
                         Toast.makeText(
                             context,
-                            response.body()?.message.toString() + "",
+                            response.body()?.message.toString(),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
                 } catch (e: Exception) {
                     Toast.makeText(
                         context,
-                        "Some error occurred. Please try again!",
+                        ConstantUtils.MSG_SOME_ERROR_OCCURRED,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -128,22 +144,21 @@ class CardListFragment : Fragment() {
     private fun filter(text: String) {
         if (listEmployee != null && listEmployee?.isNotEmpty() == true) {
             val filteredList: List<EmployeeEntity> =
-                listEmployee!!.filter {
-                        item ->
+                listEmployee!!.filter { item ->
                     item.first_name.trim().lowercase().startsWith(text.lowercase()) ||
-                    item.last_name.trim().lowercase().startsWith(text.lowercase())  ||
-                    item.designation.trim().lowercase().startsWith(text.lowercase())  ||
-                    item.company_info.name.trim().lowercase().startsWith(text.lowercase())
+                            item.last_name.trim().lowercase().startsWith(text.lowercase()) ||
+                            item.designation.trim().lowercase().startsWith(text.lowercase()) ||
+                            item.company_info.name.trim().lowercase().startsWith(text.lowercase())
                 }
 
             if (filteredList.isEmpty()) {
                 listAdapter?.filterList(emptyList())
-                Toast.makeText(context, "No Data Found..", Toast.LENGTH_SHORT).show()
-            }else {
+                Toast.makeText(context, ConstantUtils.MSG_NO_DATA_FOUND, Toast.LENGTH_SHORT).show()
+            } else {
                 listAdapter?.filterList(filteredList)
             }
-            binding.tvTotalCardFrag.text = filteredList.size.toString() + " Cards total"
-        } else Toast.makeText(context, "No Data Found", Toast.LENGTH_SHORT).show()
+            binding.tvTotalCardFrag.text = filteredList.size.toString() + getString(R.string.cards_total)
+        } else Toast.makeText(context, ConstantUtils.MSG_NO_DATA_FOUND, Toast.LENGTH_SHORT).show()
     }
 
 //    fun dataToEntity(list : List<Data>): List<EmployeeEntity>{

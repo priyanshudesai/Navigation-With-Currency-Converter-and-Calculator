@@ -10,4 +10,4 @@ data class CompanyInfo(
     val name: String,
     val phone_number: String,
     val website: String
-): Serializable
+) : Serializable

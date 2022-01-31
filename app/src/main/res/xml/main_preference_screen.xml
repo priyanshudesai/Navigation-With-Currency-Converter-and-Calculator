@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        android:key="display"
+        android:title="Display">
+
+    <ListPreference
+        android:defaultValue="@string/def_theme"
+        android:entries="@array/themes"
+        android:entryValues="@array/themes"
+        android:key="theme"
+        app:useSimpleSummaryProvider="true"
+        android:title="@string/theme_dialog_title"
+        android:dialogTitle="@string/theme_dialog_title"/>
+    </PreferenceCategory>
+</PreferenceScreen>

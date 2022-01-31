@@ -5,4 +5,4 @@ import java.io.Serializable
 data class Email(
     val email: String,
     val type: String
-): Serializable
+) : Serializable

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/abcd.xml" value="0.23897435897435898" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/card_call_button.xml" value="0.25833333333333336" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/card_call_button_background.xml" value="0.25833333333333336" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/card_ripple_effect.xml" value="0.17864583333333334" />
@@ -12,18 +13,22 @@
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/ripplebck.xml" value="0.18425925925925926" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/text.xml" value="0.18425925925925926" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/activity_card_details.xml" value="0.2421875" />
-        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/activity_navigation.xml" value="0.1532033426183844" />
+        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/activity_navigation.xml" value="0.2" />
+        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/fragment_calculator.xml" value="0.19166666666666668" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/fragment_card_holder.xml" value="0.2421875" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/fragment_card_list.xml" value="0.22962962962962963" />
+        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/fragment_currency_converter.xml" value="0.264" />
+        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/fragment_settings.xml" value="0.17291666666666666" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/layout_card_holder.xml" value="0.2421875" />
-        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/layout_card_list.xml" value="0.2421875" />
+        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/layout_card_list.xml" value="0.4" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/layout_company_info_card_details.xml" value="0.2421875" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/layout_contact_info_card_details.xml" value="0.22962962962962963" />
-        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/view_bar_navigation.xml" value="0.2" />
+        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/view_bar_navigation.xml" value="0.11356466876971609" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/view_contact_info_card_details.xml" value="0.2421875" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/layout/view_content_navigation.xml" value="0.1796875" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/menu/menu_main_drawer.xml" value="0.20816326530612245" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/menu/menu_search.xml" value="0.2421875" />
+        <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/xml/main_preference_screen.xml" value="0.264" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/app/src/main/res/layout/activity_navigation.xml" value="0.19322916666666667" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/app/src/main/res/layout/app_bar_navigation.xml" value="0.19322916666666667" />

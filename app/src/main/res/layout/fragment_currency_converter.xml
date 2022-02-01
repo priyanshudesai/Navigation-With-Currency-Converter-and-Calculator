@@ -13,6 +13,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="32dp"
         android:text="Convert to "
+        android:fontFamily="@font/black_ops_one"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -27,6 +28,7 @@
         android:backgroundTint="?attr/textColor"
         android:layout_marginStart="16dp"
         android:spinnerMode="dropdown"
+
         app:layout_constraintBottom_toBottomOf="@+id/textView"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView" />
@@ -37,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="from INR"
+        android:fontFamily="@font/black_ops_one"
         app:layout_constraintBottom_toBottomOf="@+id/spinner_currencyValue"
         app:layout_constraintStart_toEndOf="@+id/spinner_currencyValue"
         app:layout_constraintTop_toTopOf="@+id/spinner_currencyValue" />
@@ -51,6 +54,7 @@
         android:hint="Enter Value to be converted"
         android:textColor="?android:textColor"
         android:inputType="number"
+        android:fontFamily="@font/black_ops_one"
         android:backgroundTint="?android:textColor"
         android:textColorHint="?android:textColor"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +68,7 @@
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="Converted value is"
+        android:fontFamily="@font/black_ops_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_value" />
@@ -74,6 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:gravity="center"
+        android:fontFamily="@font/black_ops_one"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />

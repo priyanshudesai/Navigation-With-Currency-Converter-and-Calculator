@@ -3,6 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/font/black_ops_one.xml" value="0.2111111111111111" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/font/lobster.xml" value="0.2111111111111111" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/font/poppins_medium.xml" value="0.2111111111111111" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/layout/activity_card_details.xml" value="0.28129829984544047" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/layout/activity_navigation.xml" value="0.25" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/layout/fragment_calculator.xml" value="0.25" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/layout/fragment_card_list.xml" value="0.25" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/layout/fragment_currency_converter.xml" value="0.25" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/layout/layout_card_list.xml" value="0.25" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/layout/layout_company_info_card_details.xml" value="0.25" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/layout/layout_contact_info_card_details.xml" value="0.25" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/layout/layout_custome_edittext.xml" value="0.10989583333333333" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/layout/view_bar_navigation.xml" value="0.25" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/layout/view_content_navigation.xml" value="0.25" />
+        <entry key="..\:/Navigation-With-Currency-Converter-and-Calculator/app/src/main/res/xml/main_preference_screen.xml" value="0.25" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/abcd.xml" value="0.23897435897435898" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/card_call_button.xml" value="0.25833333333333336" />
         <entry key="..\:/SodaInMind/AndroidProjectsKotlin/CurrencyConverter/app/src/main/res/drawable/card_call_button_background.xml" value="0.25833333333333336" />

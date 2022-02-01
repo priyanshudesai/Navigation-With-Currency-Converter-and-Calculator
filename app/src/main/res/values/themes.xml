@@ -105,8 +105,11 @@
         <item name="bgImage">@drawable/card_img_background_christmas</item>
 
         <item name="appBarColor">@color/redColor</item>
-<!--        <item name="android:textColorAlertDialogListItem">@color/purple_500</item>-->
+
+
     </style>
+
+
 
     <style name="Theme.CurrencyConverter.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 

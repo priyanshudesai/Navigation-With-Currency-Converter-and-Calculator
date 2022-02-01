@@ -30,14 +30,14 @@
     <string name="phone">Phone</string>
     <string name="email">Email</string>
 
+    <string name="def_theme">Normal</string>
+
+    <string name="theme_summary">Appearance</string>
+    <string name="theme_dialog_title">Theme</string>
+    <string name="settings">Settings</string>
     <string-array name="themes">
         <item>Normal</item>
         <item>Dark</item>
         <item>Christmas</item>
     </string-array>
-
-    <string name="def_theme">Normal</string>
-    <string name="theme_summary">Appearance</string>
-    <string name="theme_dialog_title">Theme</string>
-    <string name="settings">Settings</string>
 </resources>

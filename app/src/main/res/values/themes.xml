@@ -79,6 +79,7 @@
     </style>
 
     <style name="Theme.CurrencyConverter.NoActionBar.Christmas">
+
         <item name="colorPrimary">@color/redColor</item>
         <item name="colorPrimaryVariant">#92D840</item>
         <item name="colorOnPrimary">@color/yellowColor</item>

@@ -129,7 +129,7 @@ class CardDetailsActivity : AppCompatActivity() {
                 tv.layoutParams = lParams
                 tv.text = text
                 tv.background = getDrawable(R.drawable.circle_drawable_background_text)
-                val typeface = ResourcesCompat.getFont(applicationContext, R.font.poppins_medium)
+                val typeface = ResourcesCompat.getFont(applicationContext, R.font.lobster)
                 tv.typeface = typeface
                 tv.gravity = Gravity.CENTER
                 tv.setTextColor(getColor(R.color.whiteColor))

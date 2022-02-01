@@ -20,6 +20,7 @@ import androidx.preference.PreferenceManager
 import com.pd.currencyconverter.databinding.ActivityNavigationBinding
 import com.pd.currencyconverter.utils.ConstantUtils
 import com.pd.currencyconverter.utils.ConstantUtils.KEY_THEME
+import com.pd.currencyconverter.utils.LocaleHelper
 
 
 class NavigationActivity : AppCompatActivity() {
@@ -31,29 +32,15 @@ class NavigationActivity : AppCompatActivity() {
     private var drawerToggle: ActionBarDrawerToggle? = null
 
     private var currentTheme = ConstantUtils.NORMAL
+//    private var currentLanguage = "en"
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         currentTheme = PreferenceManager.getDefaultSharedPreferences(this@NavigationActivity).getInt(KEY_THEME, ConstantUtils.NORMAL)
         setTheme(currentTheme)
-//        val pref: SharedPreferences = PreferenceManager
-//            .getDefaultSharedPreferences(this)
-//        when (pref.getString("theme", "Christmas")) {
-//            "Normal" -> {
-//                setTheme(R.style.Theme_CurrencyConverter_NoActionBar)
-//            }
-//            "Dark" -> {
-//                Toast.makeText(this, "set theme Dark", Toast.LENGTH_SHORT).show()
-//                setTheme(R.style.Theme_CurrencyConverter_NoActionBar_Dark)
-//            }
-//            "Christmas" -> {
-//                Toast.makeText(this, "set theme Christmas", Toast.LENGTH_SHORT).show()
-//                setTheme(R.style.Theme_CurrencyConverter_NoActionBar_Christmas)
-//            }
-//            else -> {
-//                setTheme(R.style.Theme_CurrencyConverter_NoActionBar)
-//            }
-//        }
+//        currentLanguage = PreferenceManager.getDefaultSharedPreferences(this@NavigationActivity).getString(LocaleHelper.SELECTED_LANGUAGE, "en").toString()
+        LocaleHelper.setLocale(this@NavigationActivity)
+
         super.onCreate(savedInstanceState)
 
         binding = ActivityNavigationBinding.inflate(layoutInflater)

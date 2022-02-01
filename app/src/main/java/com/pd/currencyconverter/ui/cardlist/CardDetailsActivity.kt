@@ -15,6 +15,7 @@ import com.pd.currencyconverter.R
 import com.pd.currencyconverter.databinding.ActivityCardDetailsBinding
 import com.pd.currencyconverter.dataclass.EmployeeEntity
 import com.pd.currencyconverter.utils.ConstantUtils
+import com.pd.currencyconverter.utils.LocaleHelper
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -22,13 +23,17 @@ import java.util.*
 class CardDetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCardDetailsBinding
     private var currentTheme = ConstantUtils.NORMAL
+//    private var currentLanguage: String? = null
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
 
         currentTheme = PreferenceManager.getDefaultSharedPreferences(this@CardDetailsActivity).getInt(ConstantUtils.KEY_THEME, ConstantUtils.NORMAL)
         setTheme(currentTheme)
-
+//        currentLanguage = PreferenceManager.getDefaultSharedPreferences(this@CardDetailsActivity).getString(
+//            LocaleHelper.SELECTED_LANGUAGE, "en")
+//        currentLanguage?.let { LocaleHelper.setLocale(this, it) }
+        LocaleHelper.setLocale(this)
         super.onCreate(savedInstanceState)
 
         binding = ActivityCardDetailsBinding.inflate(layoutInflater)

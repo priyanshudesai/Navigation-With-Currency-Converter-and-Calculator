@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">मुद्रा परिवर्तक</string>
+    <string name="title_activity_navigation">नेविगेशन गतिविधि</string>
+
+    <string name="menu_currencyConverter">मुद्रा परिवर्तक</string>
+    <string name="menu_calculator">कैलकुलेटर</string>
+    <string name="menu_cardHolder">कार्ड धारक</string>
+    <string name="menu_settings">समायोजन</string>
+
+    <string name="drawer_open">नेविगेशन दराज खोलें</string>
+    <string name="drawer_close">नेविगेशन दराज बंद करें</string>
+    <string name="menu_search">खोज</string>
+    <string name="yes">हां</string>
+    <string name="no">नहीं</string>
+    <string name="NA">N/A</string>
+    <string name="no_tags">कोई टैग नहीं</string>
+    <string name="cards_total">\ कुल कार्ड</string>
+    <string name="usd">USD</string>
+    <string name="aed">AED</string>
+    <string name="eur">EUR</string>
+    <string name="gbp">GBP</string>
+    <string name="aud">AUD</string>
+    <string name="cad">CAD</string>
+    <string name="account_type">खाते का प्रकार :</string>
+    <string name="created_at">रचना तिथि :</string>
+    <string name="contact_info">संपर्क सूचना</string>
+    <string name="name">नाम</string>
+    <string name="designation">पद</string>
+    <string name="decision_maker">निर्णयकर्ता</string>
+    <string name="phone">फ़ोन</string>
+    <string name="email">ईमेल</string>
+
+    <string-array name="themes">
+        <item>साधारण</item>
+        <item>अंधेरा</item>
+        <item>क्रिसमस</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>अंग्रेज़ी</item>
+        <item>हिन्दी</item>
+        <item>गुजराती</item>
+    </string-array>
+
+    <string name="def_language">अंग्रेज़ी</string>
+    <string name="def_theme">साधारण</string>
+    <string name="language_dialog_title">भाषा</string>
+    <string name="theme_dialog_title">विषय</string>
+    <string name="settings">समायोजन</string>
+
+    <string name="company_info">कंपनी की जानकारी</string>
+    <string name="company">कंपनी</string>
+    <string name="industry">उद्योग</string>
+    <string name="contact_type">संपर्क प्रकार</string>
+    <string name="tel">TEL</string>
+    <string name="website">वेबसाइट</string>
+    <string name="address">पता</string>
+    <string name="campaign_email">अभियान ईमेल</string>
+    <string name="tags">टैग</string>
+</resources>

@@ -5,13 +5,22 @@
         android:key="display"
         android:title="Display">
 
-    <ListPreference
-        android:defaultValue="@string/def_theme"
-        android:entries="@array/themes"
-        android:entryValues="@array/themes"
-        android:key="theme"
-        app:useSimpleSummaryProvider="true"
-        android:title="@string/theme_dialog_title"
-        android:dialogTitle="@string/theme_dialog_title"/>
+        <ListPreference
+            android:defaultValue="@string/def_theme"
+            android:entries="@array/themes"
+            android:entryValues="@array/themes"
+            android:key="theme"
+            app:useSimpleSummaryProvider="true"
+            android:title="@string/theme_dialog_title"
+            android:dialogTitle="@string/theme_dialog_title"/>
+
+        <ListPreference
+            android:defaultValue="@string/def_language"
+            android:entries="@array/languages"
+            android:entryValues="@array/languages"
+            android:key="language"
+            app:useSimpleSummaryProvider="true"
+            android:title="@string/language_dialog_title"
+            android:dialogTitle="@string/language_dialog_title"/>
     </PreferenceCategory>
 </PreferenceScreen>

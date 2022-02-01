@@ -8,6 +8,7 @@
     <attr name="cardBgColor" format="color" />
     <attr name="textBgColor" format="color" />
     <attr name="textBgColorG" format="color" />
+    <attr name="hintColor" format="color" />
 
     <attr name="bgImage" format="reference" />
 <!--    <attr name="appBar" format="reference" />-->

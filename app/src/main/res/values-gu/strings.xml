@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ચલણ કન્વર્ટર</string>
+    <string name="title_activity_navigation">નેવિગેશન પ્રવૃત્તિ</string>
+
+    <string name="menu_currencyConverter">ચલણ કન્વર્ટર</string>
+    <string name="menu_calculator">કેલ્ક્યુલેટર</string>
+    <string name="menu_cardHolder">કાર્ડ ધારક</string>
+    <string name="menu_settings">સેટિંગ્સ</string>
+
+    <string name="drawer_open">નેવિગેશન ડ્રોઅર ખોલો</string>
+    <string name="drawer_close">નેવિગેશન ડ્રોઅર બંધ કરો</string>
+    <string name="menu_search">શોધો</string>
+    <string name="yes">હા</string>
+    <string name="no">ના</string>
+    <string name="NA">N/A</string>
+    <string name="no_tags">કોઈ ટૅગ્સ નથી</string>
+    <string name="cards_total">\ કુલ કાર્ડ્સ</string>
+    <string name="usd">USD</string>
+    <string name="aed">AED</string>
+    <string name="eur">EUR</string>
+    <string name="gbp">GBP</string>
+    <string name="aud">AUD</string>
+    <string name="cad">CAD</string>
+    <string name="account_type">ખાતાનો પ્રકાર :</string>
+    <string name="created_at">રચના તારીખ :</string>
+    <string name="contact_info">સંપર્ક માહિતી</string>
+    <string name="name">નામ</string>
+    <string name="designation">હોદ્દો</string>
+    <string name="decision_maker">નિર્ણયકર્તા</string>
+    <string name="phone">ફોન</string>
+    <string name="email">ઈમેલ</string>
+
+    <string-array name="themes">
+        <item>સામાન્ય</item>
+        <item>શ્યામ</item>
+        <item>ક્રિસમસ</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>અંગ્રેજી</item>
+        <item>હિન્દી</item>
+        <item>ગુજરાતી</item>
+    </string-array>
+
+    <string name="def_language">અંગ્રેજી</string>
+    <string name="def_theme">સામાન્ય</string>
+    <string name="language_dialog_title">ભાષા</string>
+    <string name="theme_dialog_title">થીમ</string>
+    <string name="settings">સેટિંગ્સ</string>
+
+    <string name="company_info">કંપની માહિતી</string>
+    <string name="company">કંપની</string>
+    <string name="industry">ઉદ્યોગ</string>
+    <string name="contact_type">સંપર્ક પ્રકાર</string>
+    <string name="tel">TEL</string>
+    <string name="website">વેબસાઈટ</string>
+    <string name="address">સરનામું</string>
+    <string name="campaign_email">ઝુંબેશ ઇમેઇલ</string>
+    <string name="tags">ટૅગ્સ</string>
+</resources>

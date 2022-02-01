@@ -36,8 +36,25 @@
         <item>Christmas</item>
     </string-array>
 
+    <string-array name="languages">
+        <item>English</item>
+        <item>Hindi</item>
+        <item>Gujarati</item>
+    </string-array>
+
+    <string name="def_language">English</string>
     <string name="def_theme">Normal</string>
-    <string name="theme_summary">Appearance</string>
+    <string name="language_dialog_title">Language</string>
     <string name="theme_dialog_title">Theme</string>
     <string name="settings">Settings</string>
+
+    <string name="company_info">Company Info</string>
+    <string name="company">Company</string>
+    <string name="industry">Industry</string>
+    <string name="contact_type">Contact Type</string>
+    <string name="tel">TEL</string>
+    <string name="website">Website</string>
+    <string name="address">Address</string>
+    <string name="campaign_email">Campaign Email</string>
+    <string name="tags">Tags</string>
 </resources>

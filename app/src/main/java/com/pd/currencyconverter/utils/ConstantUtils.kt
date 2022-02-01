@@ -5,6 +5,7 @@ import com.pd.currencyconverter.R
 object ConstantUtils {
 
     const val KEY_THEME = "mynewtheme"
+    const val KEY_LANGUAGE = "mynewlanguage"
     const val NORMAL = R.style.Theme_CurrencyConverter_NoActionBar
     const val DARK = R.style.Theme_CurrencyConverter_NoActionBar_Dark
     const val CHRISTMAS = R.style.Theme_CurrencyConverter_NoActionBar_Christmas

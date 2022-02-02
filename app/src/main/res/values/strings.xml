@@ -12,15 +12,15 @@
     <string name="menu_search">Search</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
-    <string name="NA">N/A</string>
+    <string name="NA" translatable="false">N/A</string>
     <string name="no_tags">NO TAGS</string>
     <string name="cards_total">\ Cards total</string>
-    <string name="usd">USD</string>
-    <string name="aed">AED</string>
-    <string name="eur">EUR</string>
-    <string name="gbp">GBP</string>
-    <string name="aud">AUD</string>
-    <string name="cad">CAD</string>
+    <string name="usd" translatable="false">USD</string>
+    <string name="aed" translatable="false">AED</string>
+    <string name="eur" translatable="false">EUR</string>
+    <string name="gbp" translatable="false">GBP</string>
+    <string name="aud" translatable="false">AUD</string>
+    <string name="cad" translatable="false">CAD</string>
     <string name="account_type">Account Type :</string>
     <string name="created_at">Created at :</string>
     <string name="contact_info">Contact Info</string>
@@ -52,9 +52,23 @@
     <string name="company">Company</string>
     <string name="industry">Industry</string>
     <string name="contact_type">Contact Type</string>
-    <string name="tel">TEL</string>
+    <string name="tel" translatable="false">TEL</string>
     <string name="website">Website</string>
     <string name="address">Address</string>
     <string name="campaign_email">Campaign Email</string>
     <string name="tags">Tags</string>
+    <string name="convert_to">Convert to</string>
+    <string name="from_inr">from INR</string>
+    <string name="enter_value_to_be_converted">Enter Value to be converted</string>
+    <string name="converted_value_is">Converted value is</string>
+    <string name="enter_first_value">Enter First Value</string>
+    <string name="enter_second_value">Enter Second Value</string>
+    <string name="answer">Answer</string>
+    <string name="modulus" translatable="false">%</string>
+    <string name="divide" translatable="false">/</string>
+    <string name="multiply" translatable="false">*</string>
+    <string name="minus" translatable="false">-</string>
+    <string name="plus" translatable="false">+</string>
+    <string name="equalTo" translatable="false">=</string>
+    <string name="prefName_display">Display</string>
 </resources>

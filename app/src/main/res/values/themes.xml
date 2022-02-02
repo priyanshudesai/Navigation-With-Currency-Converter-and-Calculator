@@ -28,7 +28,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
-        <item name="android:textColor">@color/blackColor</item>
+<!--        <item name="android:textColor">@color/blackColor</item>-->
+        <item name="android:textColorPrimary">@color/blackColor</item>
+        <item name="android:textColorSecondary">@color/blackColor</item>
+        <item name="android:textColorTertiary">@color/blackColor</item>
+
         <item name="textColor">@color/whiteColor</item>
         <item name="btnColor">?attr/colorPrimary</item>
         <item name="bgColor">@color/whiteColor</item>
@@ -43,7 +47,7 @@
         <item name="appBarColor">@color/redColor</item>
 
         <item name="alertDialogTheme">@style/DialogStyle</item>
-   </style>
+    </style>
 
     <style name="Theme.CurrencyConverter.NoActionBar.Dark">
         <item name="colorPrimary">@color/lightBlackColor</item>
@@ -61,7 +65,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
-        <item name="android:textColor">@color/whiteColor</item>
+<!--        <item name="android:textColor">@color/whiteColor</item>-->
+        <item name="android:textColorPrimary">@color/whiteColor</item>
+        <item name="android:textColorSecondary">@color/whiteColor</item>
+        <item name="android:textColorTertiary">@color/whiteColor</item>
+
         <item name="textColor">@color/whiteColor</item>
         <item name="btnColor">?attr/colorPrimaryVariant</item>
         <item name="bgColor">@color/lightBlackColor</item>
@@ -95,7 +103,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
 
-        <item name="android:textColor">@color/blackColor</item>
+<!--        <item name="android:textColor">@color/blackColor</item>-->
+        <item name="android:textColorPrimary">@color/blackColor</item>
+        <item name="android:textColorSecondary">@color/blackColor</item>
+        <item name="android:textColorTertiary">@color/blackColor</item>
+
         <item name="textColor">@color/whiteColor</item>
         <item name="btnColor">?attr/colorSecondary</item>
         <item name="bgColor">@color/whiteColor</item>
@@ -110,14 +122,14 @@
         <item name="appBarColor">@color/redColor</item>
 
         <item name="alertDialogTheme">@style/DialogStyle</item>
-      </style>
+    </style>
 
     <style name="DialogStyle" parent="Theme.MaterialComponents.Light.Dialog.Alert">
         <item name="android:textColor">@color/blackColor</item>
         <item name="colorAccent">?attr/colorPrimaryVariant</item>
     </style>
 
-    <style name="Theme.CurrencyConverter.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.CurrencyConverter.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.CurrencyConverter.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

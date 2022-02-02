@@ -16,7 +16,6 @@
             android:fontFamily="@font/black_ops_one"
             android:text="@string/company_info"
             android:textAllCaps="true"
-            android:textColor="#5C5C5C"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +29,6 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/company"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/customerHistoryTitle"
             app:layout_constraintTop_toBottomOf="@+id/customerHistoryTitle" />
@@ -60,7 +58,6 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/industry"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/tv_name_companyDetails" />
@@ -100,7 +97,6 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/contact_type"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_industry_companyDetails"
             app:layout_constraintStart_toEndOf="@+id/view"
@@ -133,7 +129,6 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/tel"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/tv_industry_companyDetails" />
@@ -163,7 +158,6 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/website"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/textView10"
             app:layout_constraintTop_toBottomOf="@+id/tv_phoneNumber_companyDetails" />
@@ -194,7 +188,6 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/address"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/textView11"
             app:layout_constraintTop_toBottomOf="@+id/tv_website_companyDetails" />
@@ -224,7 +217,6 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/campaign_email"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/textView12"
             app:layout_constraintTop_toBottomOf="@+id/tv_address_companyDetails" />
@@ -254,7 +246,6 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/tags"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/textView13"
             app:layout_constraintTop_toBottomOf="@+id/tv_campaignEmail_companyDetails" />

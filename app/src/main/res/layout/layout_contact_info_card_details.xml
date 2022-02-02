@@ -17,7 +17,6 @@
             android:fontFamily="@font/black_ops_one"
             android:text="@string/contact_info"
             android:textAllCaps="true"
-            android:textColor="#5C5C5C"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +30,6 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/name"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/customerHistoryTitle"
             app:layout_constraintTop_toBottomOf="@+id/customerHistoryTitle" />
@@ -62,7 +60,6 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/designation"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/tv_name_cardDetails" />
@@ -103,7 +100,6 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/decision_maker"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView8"
             app:layout_constraintStart_toEndOf="@+id/view"
@@ -135,7 +131,6 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/phone"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/textView8"
             app:layout_constraintTop_toBottomOf="@+id/tv_designation_cardDetails" />
@@ -181,7 +176,6 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/black_ops_one"
             android:text="@string/email"
-            android:textColor="#5C5C5C"
             android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/textView10"
             app:layout_constraintTop_toBottomOf="@+id/tv_phoneNumber_cardDetails" />

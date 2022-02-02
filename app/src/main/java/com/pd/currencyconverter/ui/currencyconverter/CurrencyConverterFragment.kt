@@ -62,15 +62,13 @@ class CurrencyConverterFragment : Fragment() {
 
 
         binding.editTextValue.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                Log.e("TAG", "onTextChanged: $p0")
                 amount = p0.toString()
                 calculateData(amount)
             }
+
             override fun afterTextChanged(p0: Editable?) {}
         })
         return root
@@ -78,7 +76,6 @@ class CurrencyConverterFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-
         _binding = null
     }
 

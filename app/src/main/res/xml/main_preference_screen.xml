@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
         android:key="display"
-        android:title="Display">
+        android:title="@string/prefName_display">
 
         <ListPreference
             android:defaultValue="@string/def_theme"

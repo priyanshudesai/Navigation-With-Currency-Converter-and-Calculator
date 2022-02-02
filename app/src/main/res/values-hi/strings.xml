@@ -13,15 +13,8 @@
     <string name="menu_search">खोज</string>
     <string name="yes">हां</string>
     <string name="no">नहीं</string>
-    <string name="NA">N/A</string>
     <string name="no_tags">कोई टैग नहीं</string>
     <string name="cards_total">\ कुल कार्ड</string>
-    <string name="usd">USD</string>
-    <string name="aed">AED</string>
-    <string name="eur">EUR</string>
-    <string name="gbp">GBP</string>
-    <string name="aud">AUD</string>
-    <string name="cad">CAD</string>
     <string name="account_type">खाते का प्रकार :</string>
     <string name="created_at">रचना तिथि :</string>
     <string name="contact_info">संपर्क सूचना</string>
@@ -53,9 +46,16 @@
     <string name="company">कंपनी</string>
     <string name="industry">उद्योग</string>
     <string name="contact_type">संपर्क प्रकार</string>
-    <string name="tel">TEL</string>
     <string name="website">वेबसाइट</string>
     <string name="address">पता</string>
     <string name="campaign_email">अभियान ईमेल</string>
     <string name="tags">टैग</string>
+    <string name="convert_to">INR से </string>
+    <string name="from_inr"> में बदलो</string>
+    <string name="enter_value_to_be_converted">परिवर्तित किये जाने वाली कीमत दर्ज करें</string>
+    <string name="converted_value_is">रूपांतरित कीमत है </string>
+    <string name="enter_first_value">पहली कीमत दर्ज करें</string>
+    <string name="enter_second_value">दुसरी कीमत दर्ज करें</string>
+    <string name="answer">उत्तर</string>
+    <string name="prefName_display">प्रदर्शन</string>
 </resources>

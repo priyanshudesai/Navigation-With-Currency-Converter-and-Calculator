@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.pd.currencyconverter.R
 import com.pd.currencyconverter.databinding.FragmentCalculatorBinding
 
 class CalculatorFragment : Fragment(), TextWatcher {
@@ -24,26 +25,25 @@ class CalculatorFragment : Fragment(), TextWatcher {
         val root: View = binding.root
 
         binding.btPlus.setOnClickListener {
-            binding.tvShowOperator.text = "+"
-            calculate("+")
+            binding.tvShowOperator.text = getString(R.string.plus)
+            calculate(getString(R.string.plus))
         }
         binding.btMinus.setOnClickListener {
-            binding.tvShowOperator.text = "-"
-            calculate("-")
+            binding.tvShowOperator.text = getString(R.string.minus)
+            calculate(getString(R.string.minus))
         }
         binding.btMultiplication.setOnClickListener {
-            binding.tvShowOperator.text = "*"
-            calculate("*")
+            binding.tvShowOperator.text = getString(R.string.multiply)
+            calculate(getString(R.string.multiply))
         }
         binding.btDivision.setOnClickListener {
-            binding.tvShowOperator.text = "/"
-            calculate("/")
+            binding.tvShowOperator.text = getString(R.string.divide)
+            calculate(getString(R.string.divide))
         }
         binding.btModulus.setOnClickListener {
-            binding.tvShowOperator.text = "%"
-            calculate("%")
+            binding.tvShowOperator.text = getString(R.string.modulus)
+            calculate(getString(R.string.modulus))
         }
-
         binding.etFirstValue.addTextChangedListener(this)
         binding.etSecondValue.addTextChangedListener(this)
 
@@ -60,18 +60,21 @@ class CalculatorFragment : Fragment(), TextWatcher {
             val firstValue = binding.etFirstValue.text.toString().toDouble()
             val secondValue = binding.etSecondValue.text.toString().toDouble()
             when (operator) {
-                "+" -> binding.tvAnswer.text = (firstValue + secondValue).toString()
-                "-" -> binding.tvAnswer.text = (firstValue - secondValue).toString()
-                "*" -> binding.tvAnswer.text = (firstValue * secondValue).toString()
-                "/" -> binding.tvAnswer.text = (firstValue / secondValue).toString()
-                "%" -> binding.tvAnswer.text = (firstValue % secondValue).toString()
+                getString(R.string.plus) -> binding.tvAnswer.text =
+                    (firstValue + secondValue).toString()
+                getString(R.string.minus) -> binding.tvAnswer.text =
+                    (firstValue - secondValue).toString()
+                getString(R.string.multiply) -> binding.tvAnswer.text =
+                    (firstValue * secondValue).toString()
+                getString(R.string.divide) -> binding.tvAnswer.text =
+                    (firstValue / secondValue).toString()
+                getString(R.string.modulus) -> binding.tvAnswer.text =
+                    (firstValue % secondValue).toString()
             }
         }
     }
 
-    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-    }
+    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
     override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
         calculate(binding.tvShowOperator.text.toString())

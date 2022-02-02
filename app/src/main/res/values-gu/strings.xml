@@ -13,15 +13,8 @@
     <string name="menu_search">શોધો</string>
     <string name="yes">હા</string>
     <string name="no">ના</string>
-    <string name="NA">N/A</string>
     <string name="no_tags">કોઈ ટૅગ્સ નથી</string>
     <string name="cards_total">\ કુલ કાર્ડ્સ</string>
-    <string name="usd">USD</string>
-    <string name="aed">AED</string>
-    <string name="eur">EUR</string>
-    <string name="gbp">GBP</string>
-    <string name="aud">AUD</string>
-    <string name="cad">CAD</string>
     <string name="account_type">ખાતાનો પ્રકાર :</string>
     <string name="created_at">રચના તારીખ :</string>
     <string name="contact_info">સંપર્ક માહિતી</string>
@@ -53,9 +46,16 @@
     <string name="company">કંપની</string>
     <string name="industry">ઉદ્યોગ</string>
     <string name="contact_type">સંપર્ક પ્રકાર</string>
-    <string name="tel">TEL</string>
     <string name="website">વેબસાઈટ</string>
     <string name="address">સરનામું</string>
     <string name="campaign_email">ઝુંબેશ ઇમેઇલ</string>
     <string name="tags">ટૅગ્સ</string>
+    <string name="convert_to">INR થી</string>
+    <string name="from_inr"> માં કન્વર્ટ કરો</string>
+    <string name="enter_value_to_be_converted">રૂપાંતરિત કરવા માટે મૂલ્ય દાખલ કરો</string>
+    <string name="converted_value_is">રૂપાંતરિત મૂલ્ય છે </string>
+    <string name="enter_first_value">પ્રથમ મૂલ્ય દાખલ કરો</string>
+    <string name="enter_second_value">બીજું મૂલ્ય દાખલ કરો</string>
+    <string name="answer">જવાબ</string>
+    <string name="prefName_display">ડિસ્પ્લે</string>
 </resources>

@@ -52,10 +52,13 @@
     <string name="tags">ટૅગ્સ</string>
     <string name="convert_to">INR થી</string>
     <string name="from_inr"> માં કન્વર્ટ કરો</string>
-    <string name="enter_value_to_be_converted">રૂપાંતરિત કરવા માટે મૂલ્ય દાખલ કરો</string>
-    <string name="converted_value_is">રૂપાંતરિત મૂલ્ય છે </string>
+    <string name="enter_value_to_be_converted">રૂપાંતરિત કરવા માટે INR દાખલ કરો</string>
+    <string name="converted_value_is">રૂપાંતરિત મૂલ્યો છે </string>
     <string name="enter_first_value">પ્રથમ મૂલ્ય દાખલ કરો</string>
     <string name="enter_second_value">બીજું મૂલ્ય દાખલ કરો</string>
     <string name="answer">જવાબ</string>
     <string name="prefName_display">ડિસ્પ્લે</string>
+    <string name="us_dollar">અમેરીકી ડોલર</string>
+    <string name="emirati_dirhams">અમીરાત દિરહામ</string>
+    <string name="australian_dollar">ઓસ્ટ્રેલિયન ડોલર</string>
 </resources>

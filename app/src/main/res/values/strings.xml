@@ -59,8 +59,8 @@
     <string name="tags">Tags</string>
     <string name="convert_to">Convert to</string>
     <string name="from_inr">from INR</string>
-    <string name="enter_value_to_be_converted">Enter Value to be converted</string>
-    <string name="converted_value_is">Converted value is</string>
+    <string name="enter_value_to_be_converted">Enter INR to be converted</string>
+    <string name="converted_value_is">Converted values are</string>
     <string name="enter_first_value">Enter First Value</string>
     <string name="enter_second_value">Enter Second Value</string>
     <string name="answer">Answer</string>
@@ -71,4 +71,7 @@
     <string name="plus" translatable="false">+</string>
     <string name="equalTo" translatable="false">=</string>
     <string name="prefName_display">Display</string>
+    <string name="us_dollar">US Dollar</string>
+    <string name="emirati_dirhams">Emirates Dirham</string>
+    <string name="australian_dollar">Australian Dollar</string>
 </resources>

@@ -1,5 +1,9 @@
 package com.pd.currencyconverter.ui.cardlist
 
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
@@ -11,6 +15,8 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.preference.PreferenceManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.pd.currencyconverter.R
 import com.pd.currencyconverter.databinding.ActivityCardDetailsBinding
 import com.pd.currencyconverter.dataclass.EmployeeEntity
@@ -23,6 +29,7 @@ import java.util.*
 class CardDetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCardDetailsBinding
     private var currentTheme = ConstantUtils.NORMAL
+    lateinit var bitmapImage :Bitmap
 //    private var currentLanguage: String? = null
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -51,6 +58,19 @@ class CardDetailsActivity : AppCompatActivity() {
             .setDefaultRequestOptions(requestOptions)
             .load(data.card.front.original)
             .into(binding.ivProfileCardDetails)
+
+        bitmapImage = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_placeholder)
+        Glide.with(applicationContext)
+            .asBitmap()
+            .load(data.card.front.original)
+            .into(object : CustomTarget<Bitmap>(){
+                override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
+                    bitmapImage = resource
+                }
+                override fun onLoadCleared(placeholder: Drawable?) {
+                    bitmapImage = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_placeholder)
+                }
+            })
 
         binding.tvStatusCardDetails.text = data.status
 
@@ -139,6 +159,11 @@ class CardDetailsActivity : AppCompatActivity() {
         } else {
             binding.cardCompanyInfoDetails.textView14.text =
                 binding.cardCompanyInfoDetails.textView14.text.toString() + "\n" + getString(R.string.no_tags)
+        }
+
+        binding.ivProfileCardDetails.setOnClickListener {
+            ConstantUtils.bitmap = bitmapImage
+            startActivity(Intent(this@CardDetailsActivity, CardImageViewActivity::class.java))
         }
     }
 }

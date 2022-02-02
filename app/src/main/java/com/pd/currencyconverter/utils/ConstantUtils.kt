@@ -1,9 +1,11 @@
 package com.pd.currencyconverter.utils
 
+import android.graphics.Bitmap
 import com.pd.currencyconverter.R
 
 object ConstantUtils {
 
+    lateinit var bitmap : Bitmap
     const val KEY_THEME = "mynewtheme"
     const val KEY_LANGUAGE = "mynewlanguage"
     const val NORMAL = R.style.Theme_CurrencyConverter_NoActionBar

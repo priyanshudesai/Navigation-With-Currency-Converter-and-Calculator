@@ -42,6 +42,9 @@
         <item name="textBgColor">@color/purple_200</item>
         <item name="textBgColorG">@color/purple_500</item>
 
+        <item name="txtNormalColor">@color/blackColor</item>
+        <item name="btnBgNormalColor">@color/greyColor</item>
+        <item name="btnBgEqualColor">@color/greenColor</item>
         <item name="bgImage">@drawable/card_img_background</item>
 
         <item name="appBarColor">@color/redColor</item>
@@ -79,6 +82,9 @@
         <item name="textBgColor">@color/lightBlackColor</item>
         <item name="textBgColorG">@color/darkBlack</item>
 
+        <item name="txtNormalColor">@color/whiteColor</item>
+        <item name="btnBgNormalColor">@color/blackColor</item>
+        <item name="btnBgEqualColor">@color/greenColor</item>
         <item name="bgImage">@drawable/card_img_background_dark</item>
 
         <item name="appBarColor">@color/redColor</item>
@@ -117,6 +123,9 @@
         <item name="textBgColor">@color/lightGreen</item>
         <item name="textBgColorG">@color/darkGreen</item>
 
+        <item name="txtNormalColor">@color/whiteColor</item>
+        <item name="btnBgNormalColor">@color/greenColor</item>
+        <item name="btnBgEqualColor">@color/redColor</item>
         <item name="bgImage">@drawable/card_img_background_christmas</item>
 
         <item name="appBarColor">@color/redColor</item>

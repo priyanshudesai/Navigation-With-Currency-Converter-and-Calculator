@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="end"
+    android:orientation="vertical"
+    android:weightSum="3">
+
+    <TextView
+        android:id="@+id/tv_first_calculator"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:maxLength="8"
+        android:fontFamily="@font/black_ops_one"
+        android:textSize="35sp" />
+
+    <RelativeLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_operator_calculator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/black_ops_one"
+            android:textColor="@color/orangeBtn"
+            android:layout_alignParentStart="true"
+            android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/tv_second_calculator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:maxLength="8"
+            android:fontFamily="@font/black_ops_one"
+            android:gravity="end"
+            android:textSize="35sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_answer_calculator"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:fontFamily="@font/black_ops_one"
+        android:textSize="35sp" />
+</LinearLayout>

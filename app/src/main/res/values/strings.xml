@@ -66,7 +66,7 @@
     <string name="answer">Answer</string>
     <string name="modulus" translatable="false">%</string>
     <string name="divide" translatable="false">/</string>
-    <string name="multiply" translatable="false">*</string>
+    <string name="multiply" translatable="false">X</string>
     <string name="minus" translatable="false">-</string>
     <string name="plus" translatable="false">+</string>
     <string name="equalTo" translatable="false">=</string>
@@ -74,4 +74,17 @@
     <string name="us_dollar">US Dollar</string>
     <string name="emirati_dirhams">Emirates Dirham</string>
     <string name="australian_dollar">Australian Dollar</string>
+    <string name="back_button" translatable="false"><![CDATA[<<]]></string>
+    <string name="ac" translatable="false">AC</string>
+    <string name="_7" translatable="false">7</string>
+    <string name="_8" translatable="false">8</string>
+    <string name="_9" translatable="false">9</string>
+    <string name="_4" translatable="false">4</string>
+    <string name="_5" translatable="false">5</string>
+    <string name="_6" translatable="false">6</string>
+    <string name="_1" translatable="false">1</string>
+    <string name="_2" translatable="false">2</string>
+    <string name="_3" translatable="false">3</string>
+    <string name="_0" translatable="false">0</string>
+    <string name="dot" translatable="false">.</string>
 </resources>

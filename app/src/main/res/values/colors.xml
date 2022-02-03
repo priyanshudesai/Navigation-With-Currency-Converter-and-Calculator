@@ -17,4 +17,10 @@
     <color name="lightBlack">#485461</color>
     <color name="darkGreen">#233329</color>
     <color name="lightGreen">#63d471</color>
+
+
+    <color name="lightPink">#43DD2C00</color>
+    <color name="darkPink">#9FF44336</color>
+    <color name="orangeBtn">#F57C00</color>
+    <color name="greyBtn">#BFC0C0</color>
 </resources>

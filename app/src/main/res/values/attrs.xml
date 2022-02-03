@@ -9,6 +9,13 @@
     <attr name="textBgColor" format="color" />
     <attr name="textBgColorG" format="color" />
 
+    <attr name="btnBgNormalColor" format="color" />
+    <attr name="btnBgEqualColor" format="color" />
+    <attr name="txtNormalColor" format="color" />
+<!--    <attr name="btnBgOrangeColor" format="color" />-->
+<!--    <attr name="btnBgPinkColor" format="color" />-->
+<!--    <attr name="btnBgGreenColor" format="color" />-->
+
     <attr name="bgImage" format="reference" />
 <!--    <attr name="appBar" format="reference" />-->
 <!--    <attr name="textSize" format="dimension" />-->

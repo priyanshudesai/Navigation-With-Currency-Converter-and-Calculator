@@ -58,7 +58,7 @@ class CardListFragment : Fragment() {
 
             }
         })
-        NetworkStatusHelper(requireContext()).registerNetworkCallBack().observe(requireActivity(), {
+        NetworkStatusHelper(requireContext()).registerNetworkCallBack().observe(requireActivity()) {
             when (it) {
                 NetworkStatus.Available -> {
                     loadListEmployee()
@@ -66,7 +66,7 @@ class CardListFragment : Fragment() {
                 }
                 NetworkStatus.Unavailable -> Log.e("TAG", "No Internet")
             }
-        })
+        }
         return root
     }
 

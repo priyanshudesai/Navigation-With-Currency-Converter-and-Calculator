@@ -19,14 +19,14 @@ class CardListViewModel(application: Application) : AndroidViewModel(application
     }
 
     private fun getAllEmployee() {
-        val employeeDao = RoomAppDb.getAppDatabase((getApplication()))?.employeeDao()
+        val employeeDao = RoomAppDb.getAppDatabase((getApplication()))?.databaseDao()
         val list = employeeDao?.getAllEmployees()
         allEmployee.postValue(list!!)
 
     }
 
     fun insertEmployeesInfo(entity: List<EmployeeEntity>) {
-        val employeeDao = RoomAppDb.getAppDatabase((getApplication()))?.employeeDao()
+        val employeeDao = RoomAppDb.getAppDatabase((getApplication()))?.databaseDao()
         employeeDao?.insertEmployees(entity)
         getAllEmployee()
     }

@@ -87,4 +87,5 @@
     <string name="_3" translatable="false">3</string>
     <string name="_0" translatable="false">0</string>
     <string name="dot" translatable="false">.</string>
+    <string name="menu_alarm">Alarm</string>
 </resources>

@@ -159,7 +159,7 @@
                 android:background="@drawable/btn_background_calculator_orange"
                 android:fontFamily="@font/black_ops_one"
                 android:minHeight="80dp"
-                android:text="@string/multiplication"
+                android:text="@string/multiply"
                 android:textColor="@color/whiteColor"
                 android:textSize="24sp"
                 android:textStyle="bold"

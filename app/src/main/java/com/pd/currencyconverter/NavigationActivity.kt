@@ -7,10 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.pd.currencyconverter.ui.settings.SettingsFragment
 import com.pd.currencyconverter.ui.calculator.CalculatorFragment
@@ -18,6 +15,7 @@ import com.pd.currencyconverter.ui.cardlist.CardListFragment
 import com.pd.currencyconverter.ui.currencyconverter.CurrencyConverterFragment
 import androidx.preference.PreferenceManager
 import com.pd.currencyconverter.databinding.ActivityNavigationBinding
+import com.pd.currencyconverter.ui.alarm.AlarmFragment
 import com.pd.currencyconverter.utils.ConstantUtils
 import com.pd.currencyconverter.utils.ConstantUtils.KEY_THEME
 import com.pd.currencyconverter.utils.LocaleHelper
@@ -52,14 +50,14 @@ class NavigationActivity : AppCompatActivity() {
         drawerLayout = binding.drawerLayout
 
         val navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_navigation)
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_currencyConverter, R.id.nav_calculator
-            ), drawerLayout
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+//        val navController = findNavController(R.id.nav_host_fragment_content_navigation)
+//        appBarConfiguration = AppBarConfiguration(
+//            setOf(
+//                R.id.nav_currencyConverter, R.id.nav_calculator, R.id.nav_alarm, R.id.nav_settings
+//            ), drawerLayout
+//        )
+//        setupActionBarWithNavController(navController, appBarConfiguration)
+//        navView.setupWithNavController(navController)
         navView.setNavigationItemSelectedListener { menuItem ->
             selectDrawerItem(menuItem)
             true
@@ -88,8 +86,6 @@ class NavigationActivity : AppCompatActivity() {
             binding.navView.menu.performIdentifierAction(R.id.nav_currencyConverter,0)
             title = navView.menu.getItem(0).title
         }
-
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -105,6 +101,7 @@ class NavigationActivity : AppCompatActivity() {
             R.id.nav_currencyConverter -> CurrencyConverterFragment::class.java
             R.id.nav_calculator -> CalculatorFragment::class.java
             R.id.nav_cardHolder -> CardListFragment::class.java
+            R.id.nav_alarm -> AlarmFragment::class.java
             R.id.nav_settings -> SettingsFragment::class.java
             else -> CurrencyConverterFragment::class.java
         }

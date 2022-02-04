@@ -1,8 +1,6 @@
 package com.pd.currencyconverter.ui.settings
 
-import android.content.Context
 import android.content.Intent
-import android.content.res.Resources
 import android.os.Bundle
 import android.util.Log
 import androidx.preference.ListPreference
@@ -11,7 +9,6 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import com.pd.currencyconverter.R
 import com.pd.currencyconverter.utils.ConstantUtils
-import com.pd.currencyconverter.utils.LocaleHelper
 
 class SettingsFragment : PreferenceFragmentCompat() {
 

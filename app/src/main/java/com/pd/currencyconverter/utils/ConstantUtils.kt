@@ -6,6 +6,8 @@ import com.pd.currencyconverter.R
 object ConstantUtils {
 
     lateinit var bitmap : Bitmap
+    const val NOTIFICATION_CHANNEL_ID = "ALARM_CHANNEL_ID"
+
     const val KEY_THEME = "mynewtheme"
     const val KEY_LANGUAGE = "mynewlanguage"
     const val NORMAL = R.style.Theme_CurrencyConverter_NoActionBar
@@ -16,7 +18,9 @@ object ConstantUtils {
 
     const val DATABASE_NAME = "CardDB"
     const val TABLE_NAME_CARD_INFORMATION = "cardInformation"
+    const val TABLE_NAME_ALARM_INFORMATION = "alarmInformation"
     const val SELECT_QUERY_FOR_ALL_CARDS = "SELECT * FROM ".plus(TABLE_NAME_CARD_INFORMATION)
+    const val SELECT_QUERY_FOR_ALL_ALARM = "SELECT * FROM ".plus(TABLE_NAME_ALARM_INFORMATION)
 
     const val INTENT_PARSE_DATA = "data"
     const val API_LIST_EMPLOYEES = "list"

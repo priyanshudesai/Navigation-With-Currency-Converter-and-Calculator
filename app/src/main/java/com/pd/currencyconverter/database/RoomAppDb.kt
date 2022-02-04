@@ -5,13 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.pd.currencyconverter.dataclass.AlarmEntity
 import com.pd.currencyconverter.dataclass.EmployeeEntity
 import com.pd.currencyconverter.utils.ConstantUtils
 
-@Database(entities = [EmployeeEntity::class], version = 1)
+@Database(entities = [EmployeeEntity::class,AlarmEntity::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class RoomAppDb : RoomDatabase() {
-    abstract fun employeeDao(): EmployeeDao?
+    abstract fun databaseDao(): DatabaseDao?
 
     companion object {
         private var INSTANCE: RoomAppDb? = null

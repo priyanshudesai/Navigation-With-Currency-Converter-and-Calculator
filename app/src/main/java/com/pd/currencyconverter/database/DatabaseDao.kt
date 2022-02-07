@@ -1,6 +1,9 @@
 package com.pd.currencyconverter.database
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.pd.currencyconverter.dataclass.AlarmEntity
 import com.pd.currencyconverter.dataclass.EmployeeEntity
 import com.pd.currencyconverter.utils.ConstantUtils
@@ -19,7 +22,7 @@ interface DatabaseDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAlarm(alarm: AlarmEntity?)
 
-    @Query("DELETE FROM alarmInformation WHERE id = :id")
+    @Query(ConstantUtils.DELETE_FROM_ALARM_INFORMATION)
     fun deleteAlarm(id: Int)
 //
 //    @Delete

@@ -138,6 +138,13 @@
         <item name="colorAccent">?attr/colorPrimaryVariant</item>
     </style>
 
+    <style name="MyTimePickerDialogStyle" parent="@style/ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="colorControlActivated">@color/purple_500</item>
+        <item name="colorAccent">@color/purple_500</item>
+        <item name="android:textColorPrimary">@color/purple_500</item>
+        <item name="android:textColorSecondary">@color/purple_200</item>
+    </style>
+
     <style name="Theme.CurrencyConverter.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.CurrencyConverter.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

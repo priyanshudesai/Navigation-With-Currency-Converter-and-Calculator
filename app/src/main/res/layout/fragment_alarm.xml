@@ -23,6 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="Set Alarm Date"
+        android:textColor="?attr/textColor"
+        app:backgroundTint="?attr/btnColor"
         app:layout_constraintBottom_toBottomOf="@+id/tv_date_preview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -46,6 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="Set Alarm Time"
+        android:textColor="?attr/textColor"
+        app:backgroundTint="?attr/btnColor"
         app:layout_constraintBottom_toBottomOf="@+id/tv_time_preview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -61,6 +65,9 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/black_ops_one"
         android:hint="Enter Description"
+        android:textColor="?android:textColorPrimary"
+        android:textColorHint="?android:textColorPrimary"
+        android:backgroundTint="?android:textColorPrimary"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="@+id/btn_setTime"
         app:layout_constraintStart_toStartOf="@+id/tv_time_preview"
@@ -73,9 +80,25 @@
         android:text="Save Alarm"
         android:fontFamily="@font/black_ops_one"
         android:textSize="22sp"
+        android:textColor="?attr/textColor"
+        app:backgroundTint="?attr/btnColor"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="@+id/et_description"
         app:layout_constraintStart_toStartOf="@+id/et_description"
         app:layout_constraintTop_toBottomOf="@+id/et_description" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_alarmFrag"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_saveAlarm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_saveAlarm"
+        tools:listitem="@layout/layout_alarm_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

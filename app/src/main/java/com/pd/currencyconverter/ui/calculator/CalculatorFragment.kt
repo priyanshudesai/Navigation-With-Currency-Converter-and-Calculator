@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.pd.currencyconverter.R
 import com.pd.currencyconverter.databinding.FragmentCalculatorBinding
+import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 
 class CalculatorFragment : Fragment() {
 
@@ -186,5 +187,10 @@ class CalculatorFragment : Fragment() {
             }
             answerText.text = result.toString()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        FirebaseAnalyticsHelper.logScreenEvent("CalculatorScreen", "CalculatorFragment")
     }
 }

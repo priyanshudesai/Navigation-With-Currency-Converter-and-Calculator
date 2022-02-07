@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.pd.currencyconverter.databinding.FragmentCurrencyConverterBinding
+import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 
 class CurrencyConverterFragment : Fragment() {
 
@@ -92,5 +93,10 @@ class CurrencyConverterFragment : Fragment() {
             binding.tvPriceCurrencyConverterAED.text = "0.0"
             binding.tvPriceCurrencyConverterAUD.text = "0.0"
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        FirebaseAnalyticsHelper.logScreenEvent("CurrencyConverterScreen", "CurrencyConverterFragment")
     }
 }

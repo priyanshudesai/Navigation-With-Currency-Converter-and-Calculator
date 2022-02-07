@@ -21,6 +21,7 @@ import com.pd.currencyconverter.R
 import com.pd.currencyconverter.databinding.ActivityCardDetailsBinding
 import com.pd.currencyconverter.dataclass.EmployeeEntity
 import com.pd.currencyconverter.utils.ConstantUtils
+import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 import com.pd.currencyconverter.utils.LocaleHelper
 import java.text.SimpleDateFormat
 import java.util.*
@@ -163,7 +164,14 @@ class CardDetailsActivity : AppCompatActivity() {
 
         binding.ivProfileCardDetails.setOnClickListener {
             ConstantUtils.bitmap = bitmapImage
+            FirebaseAnalyticsHelper.logClickEvent(data.id.toString(),data.first_name+" "+data.last_name, "View Image")
             startActivity(Intent(this@CardDetailsActivity, CardImageViewActivity::class.java))
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        FirebaseAnalyticsHelper.logScreenEvent("CardDetailsScreen", "CardDetailsActivity")
+    }
+
 }

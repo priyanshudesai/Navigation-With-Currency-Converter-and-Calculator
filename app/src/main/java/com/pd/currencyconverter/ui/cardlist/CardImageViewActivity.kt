@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pd.currencyconverter.databinding.ActivityCardImageViewBinding
 import com.pd.currencyconverter.utils.ConstantUtils
+import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 
 class CardImageViewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCardImageViewBinding
@@ -38,5 +39,9 @@ class CardImageViewActivity : AppCompatActivity() {
 
 
 //        webview.loadDataWithBaseURL("file:///android_asset/", html, "text/html", "utf-8", "")
+    }
+    override fun onResume() {
+        super.onResume()
+        FirebaseAnalyticsHelper.logScreenEvent("CardImageViewScreen", "CardImageViewActivity")
     }
 }

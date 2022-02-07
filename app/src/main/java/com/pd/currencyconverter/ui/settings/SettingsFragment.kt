@@ -9,6 +9,7 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import com.pd.currencyconverter.R
 import com.pd.currencyconverter.utils.ConstantUtils
+import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
@@ -87,5 +88,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
         PreferenceManager.getDefaultSharedPreferences(requireActivity()).edit().putString(ConstantUtils.KEY_LANGUAGE, currentLanguage).apply()
         requireActivity().finish()
         startActivity(Intent(activity,activity?.javaClass))
+    }
+
+    override fun onResume() {
+        super.onResume()
+        FirebaseAnalyticsHelper.logScreenEvent("SettingsScreen", "SettingsFragment")
     }
 }

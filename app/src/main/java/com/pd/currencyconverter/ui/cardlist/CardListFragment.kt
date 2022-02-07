@@ -16,6 +16,7 @@ import com.pd.currencyconverter.databinding.FragmentCardListBinding
 import com.pd.currencyconverter.dataclass.EmployeeEntity
 import com.pd.currencyconverter.dataclass.EmployeeListDataClass
 import com.pd.currencyconverter.utils.ConstantUtils
+import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 import com.pd.currencyconverter.utils.NetworkStatus
 import com.pd.currencyconverter.utils.NetworkStatusHelper
 import retrofit2.Call
@@ -159,6 +160,11 @@ class CardListFragment : Fragment() {
             }
             binding.tvTotalCardFrag.text = filteredList.size.toString() + getString(R.string.cards_total)
         } else Toast.makeText(context, ConstantUtils.MSG_NO_DATA_FOUND, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        FirebaseAnalyticsHelper.logScreenEvent("CardListScreen", "CardListFragment")
     }
 
 //    fun dataToEntity(list : List<Data>): List<EmployeeEntity>{

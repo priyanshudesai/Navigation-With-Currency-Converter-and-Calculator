@@ -15,6 +15,7 @@ import com.pd.currencyconverter.R
 import com.pd.currencyconverter.dataclass.EmployeeEntity
 import com.pd.currencyconverter.ui.cardlist.CardDetailsActivity
 import com.pd.currencyconverter.utils.ConstantUtils
+import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 
 class EmployeeListAdapter(
     private var mContext: Context,
@@ -29,9 +30,19 @@ class EmployeeListAdapter(
         val viewHolder = ViewHolder(itemView)
 
         viewHolder.cardView.setOnClickListener {
+            FirebaseAnalyticsHelper.logClickEvent(
+                listEmployee?.get(viewHolder.adapterPosition)?.id.toString(),
+                listEmployee?.get(viewHolder.adapterPosition)?.first_name + " " + listEmployee?.get(
+                    viewHolder.adapterPosition
+                )?.last_name,
+                "List Item"
+            )
             mContext.startActivity(
                 Intent(mContext, CardDetailsActivity::class.java)
-                    .putExtra(ConstantUtils.INTENT_PARSE_DATA, listEmployee?.get(viewHolder.adapterPosition))
+                    .putExtra(
+                        ConstantUtils.INTENT_PARSE_DATA,
+                        listEmployee?.get(viewHolder.adapterPosition)
+                    )
             )
         }
 

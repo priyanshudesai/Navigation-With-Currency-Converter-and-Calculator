@@ -7,34 +7,31 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.navigation.ui.AppBarConfiguration
+import androidx.preference.PreferenceManager
 import com.google.android.material.navigation.NavigationView
-import com.pd.currencyconverter.ui.settings.SettingsFragment
+import com.pd.currencyconverter.databinding.ActivityNavigationBinding
+import com.pd.currencyconverter.ui.alarm.AlarmFragment
 import com.pd.currencyconverter.ui.calculator.CalculatorFragment
 import com.pd.currencyconverter.ui.cardlist.CardListFragment
 import com.pd.currencyconverter.ui.currencyconverter.CurrencyConverterFragment
-import androidx.preference.PreferenceManager
-import com.pd.currencyconverter.databinding.ActivityNavigationBinding
-import com.pd.currencyconverter.ui.alarm.AlarmFragment
+import com.pd.currencyconverter.ui.settings.SettingsFragment
 import com.pd.currencyconverter.utils.ConstantUtils
-import com.pd.currencyconverter.utils.ConstantUtils.KEY_THEME
+import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 import com.pd.currencyconverter.utils.LocaleHelper
 
 
 class NavigationActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    //    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityNavigationBinding
     private lateinit var drawerLayout: DrawerLayout
-
     private var drawerToggle: ActionBarDrawerToggle? = null
-
     private var currentTheme = ConstantUtils.NORMAL
-//    private var currentLanguage = "en"
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        currentTheme = PreferenceManager.getDefaultSharedPreferences(this@NavigationActivity).getInt(KEY_THEME, ConstantUtils.NORMAL)
+        currentTheme = PreferenceManager.getDefaultSharedPreferences(this@NavigationActivity)
+            .getInt(ConstantUtils.KEY_THEME, ConstantUtils.NORMAL)
         setTheme(currentTheme)
 //        currentLanguage = PreferenceManager.getDefaultSharedPreferences(this@NavigationActivity).getString(LocaleHelper.SELECTED_LANGUAGE, "en").toString()
         LocaleHelper.setLocale(this@NavigationActivity)
@@ -83,7 +80,7 @@ class NavigationActivity : AppCompatActivity() {
 //            .replace(R.id.nav_host_fragment_content_navigation, fragment).commit()
 
         if (savedInstanceState == null) {
-            binding.navView.menu.performIdentifierAction(R.id.nav_currencyConverter,0)
+            binding.navView.menu.performIdentifierAction(R.id.nav_currencyConverter, 0)
             title = navView.menu.getItem(0).title
         }
     }
@@ -119,4 +116,10 @@ class NavigationActivity : AppCompatActivity() {
         title = menuItem.title
         drawerLayout.closeDrawers()
     }
+
+    override fun onResume() {
+        super.onResume()
+        FirebaseAnalyticsHelper.logScreenEvent("NavigationScreen", "NavigationActivity")
+    }
+
 }

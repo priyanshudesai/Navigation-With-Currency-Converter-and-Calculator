@@ -20,6 +20,7 @@ import com.pd.currencyconverter.adapter.AlarmListAdapter
 import com.pd.currencyconverter.databinding.FragmentAlarmBinding
 import com.pd.currencyconverter.dataclass.AlarmEntity
 import com.pd.currencyconverter.utils.AlarmReceiver
+import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -149,5 +150,10 @@ class AlarmFragment : Fragment() {
             calendar.timeInMillis,
             pendingIntent
         )
+    }
+
+    override fun onResume() {
+        super.onResume()
+        FirebaseAnalyticsHelper.logScreenEvent("AlarmScreen", "AlarmFragment")
     }
 }

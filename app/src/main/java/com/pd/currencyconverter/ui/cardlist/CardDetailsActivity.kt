@@ -6,17 +6,17 @@ import android.graphics.BitmapFactory
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
-import android.view.Gravity
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.ViewCompat
 import androidx.preference.PreferenceManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.google.android.material.chip.Chip
 import com.pd.currencyconverter.R
 import com.pd.currencyconverter.databinding.ActivityCardDetailsBinding
 import com.pd.currencyconverter.dataclass.EmployeeEntity
@@ -30,13 +30,14 @@ import java.util.*
 class CardDetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCardDetailsBinding
     private var currentTheme = ConstantUtils.NORMAL
-    lateinit var bitmapImage :Bitmap
+    lateinit var bitmapImage: Bitmap
 //    private var currentLanguage: String? = null
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        currentTheme = PreferenceManager.getDefaultSharedPreferences(this@CardDetailsActivity).getInt(ConstantUtils.KEY_THEME, ConstantUtils.NORMAL)
+        currentTheme = PreferenceManager.getDefaultSharedPreferences(this@CardDetailsActivity)
+            .getInt(ConstantUtils.KEY_THEME, ConstantUtils.NORMAL)
         setTheme(currentTheme)
 //        currentLanguage = PreferenceManager.getDefaultSharedPreferences(this@CardDetailsActivity).getString(
 //            LocaleHelper.SELECTED_LANGUAGE, "en")
@@ -49,7 +50,8 @@ class CardDetailsActivity : AppCompatActivity() {
 
         title = ConstantUtils.CARD_DETAILS_TITLE
 
-        val data: EmployeeEntity = intent.getSerializableExtra(ConstantUtils.INTENT_PARSE_DATA) as EmployeeEntity
+        val data: EmployeeEntity =
+            intent.getSerializableExtra(ConstantUtils.INTENT_PARSE_DATA) as EmployeeEntity
 
         val requestOptions = RequestOptions()
         requestOptions.placeholder(R.drawable.ic_placeholder)
@@ -60,16 +62,21 @@ class CardDetailsActivity : AppCompatActivity() {
             .load(data.card.front.original)
             .into(binding.ivProfileCardDetails)
 
-        bitmapImage = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_placeholder)
+        bitmapImage =
+            BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_placeholder)
         Glide.with(applicationContext)
             .asBitmap()
             .load(data.card.front.original)
-            .into(object : CustomTarget<Bitmap>(){
+            .into(object : CustomTarget<Bitmap>() {
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                     bitmapImage = resource
                 }
+
                 override fun onLoadCleared(placeholder: Drawable?) {
-                    bitmapImage = BitmapFactory.decodeResource(applicationContext.resources, R.drawable.ic_placeholder)
+                    bitmapImage = BitmapFactory.decodeResource(
+                        applicationContext.resources,
+                        R.drawable.ic_placeholder
+                    )
                 }
             })
 
@@ -123,39 +130,41 @@ class CardDetailsActivity : AppCompatActivity() {
         binding.cardCompanyInfoDetails.tvNameCompanyDetails.text =
             if (data.company_info.name == null || data.company_info.name.isEmpty()) getString(R.string.NA) else data.company_info.name
         binding.cardCompanyInfoDetails.tvIndustryCompanyDetails.text =
-            if (data.company_info.industry_name == null || data.company_info.industry_name.isEmpty()) getString(R.string.NA) else data.company_info.industry_name
+            if (data.company_info.industry_name == null || data.company_info.industry_name.isEmpty()) getString(
+                R.string.NA
+            ) else data.company_info.industry_name
         binding.cardCompanyInfoDetails.tvTypeCompanyDetails.text =
             if (data.type == null || data.type.isEmpty()) getString(R.string.NA) else data.type
         binding.cardCompanyInfoDetails.tvPhoneNumberCompanyDetails.text =
-            if (data.company_info.phone_number == null || data.company_info.phone_number.isEmpty()) getString(R.string.NA) else data.company_info.phone_number
+            if (data.company_info.phone_number == null || data.company_info.phone_number.isEmpty()) getString(
+                R.string.NA
+            ) else data.company_info.phone_number
         binding.cardCompanyInfoDetails.tvWebsiteCompanyDetails.text =
-            if (data.company_info.website == null || data.company_info.website.isEmpty()) getString(R.string.NA) else data.company_info.website
+            if (data.company_info.website == null || data.company_info.website.isEmpty()) getString(
+                R.string.NA
+            ) else data.company_info.website
         binding.cardCompanyInfoDetails.tvAddressCompanyDetails.text =
             if (data.company_info.address == null || data.company_info.address.toString()
                     .isEmpty()
-            ) getString(R.string.NA) else data.company_info.address as CharSequence? ?: getString(R.string.NA)
+            ) getString(R.string.NA) else data.company_info.address as CharSequence?
+                ?: getString(R.string.NA)
         binding.cardCompanyInfoDetails.tvCampaignEmailCompanyDetails.text =
-            if (data.company_info.campaign_email == null || data.company_info.campaign_email.isEmpty()) getString(R.string.NA) else data.company_info.campaign_email
+            if (data.company_info.campaign_email == null || data.company_info.campaign_email.isEmpty()) getString(
+                R.string.NA
+            ) else data.company_info.campaign_email
 
 
         val convertedTagsArray: List<String> = data.tags.split(",")
         if (convertedTagsArray.lastIndex != 0) {
             convertedTagsArray.map { text ->
-                val lParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT
-                )
-                val tv = TextView(this)
-                lParams.setMargins(8, 0, 0, 0)
-                tv.setPadding(8, 8, 8, 8)
-                tv.layoutParams = lParams
-                tv.text = text
-                tv.background = getDrawable(R.drawable.circle_drawable_background_text)
-                val typeface = ResourcesCompat.getFont(applicationContext, R.font.lobster)
-                tv.typeface = typeface
-                tv.gravity = Gravity.CENTER
-                tv.setTextColor(getColor(R.color.whiteColor))
-                tv.textSize = 14F
-                binding.cardCompanyInfoDetails.llTagsCompanyDetails.addView(tv)
+                val chip = Chip(this)
+                chip.text = text
+                chip.chipBackgroundColor = getColorStateList(R.color.circle_color_background_text)
+                val typeface = ResourcesCompat.getFont(applicationContext, R.font.black_ops_one)
+                chip.typeface = typeface
+                chip.setTextColor(getColor(R.color.whiteColor))
+                chip.textSize = 14F
+                binding.cardCompanyInfoDetails.llTagsCompanyDetails.addView(chip)
             }
         } else {
             binding.cardCompanyInfoDetails.textView14.text =
@@ -163,9 +172,21 @@ class CardDetailsActivity : AppCompatActivity() {
         }
 
         binding.ivProfileCardDetails.setOnClickListener {
+            val options: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                this,
+                binding.ivProfileCardDetails,
+                ViewCompat.getTransitionName(binding.ivProfileCardDetails)!!
+            )
             ConstantUtils.bitmap = bitmapImage
-            FirebaseAnalyticsHelper.logClickEvent(data.id.toString(),data.first_name+" "+data.last_name, "View Image")
-            startActivity(Intent(this@CardDetailsActivity, CardImageViewActivity::class.java))
+            FirebaseAnalyticsHelper.logClickEvent(
+                data.id.toString(),
+                data.first_name + " " + data.last_name,
+                "View Image"
+            )
+            startActivity(
+                Intent(this@CardDetailsActivity, CardImageViewActivity::class.java),
+                options.toBundle()
+            )
         }
     }
 

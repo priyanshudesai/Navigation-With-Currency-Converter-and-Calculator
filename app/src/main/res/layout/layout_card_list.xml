@@ -21,62 +21,56 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:layout_height="240dp">
 
             <ImageView
                 android:id="@+id/iv_icon_cardHolder"
-                android:layout_width="123dp"
-                android:layout_height="64dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:background="@color/whiteColor"
-                android:src="@drawable/ic_people"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_name_cardHolder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:fontFamily="@font/black_ops_one"
-                android:singleLine="false"
-                android:text="Jhon Cooper"
-                android:textColor="?attr/colorSecondary"
-                android:textSize="16sp"
-                app:layout_constrainedWidth="true"
-                app:layout_constraintBottom_toBottomOf="@+id/iv_icon_cardHolder"
-                app:layout_constraintEnd_toStartOf="@+id/view2"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/iv_icon_cardHolder"
-                app:layout_constraintTop_toTopOf="@+id/iv_icon_cardHolder"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <View
-                android:id="@+id/view2"
-                android:layout_width="1dp"
-                android:layout_height="0dp"
-                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/greyColor"
+                android:src="@drawable/ic_placeholder"
+                android:transitionName="@string/my_transition"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_icon_cardHolder"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintDimensionRatio="h,9:16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
-            <TextView
-                android:id="@+id/tv_companyName_cardHolder"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/black_ops_one"
-                android:text="Mirrortech Pte Ltd"
-                android:textSize="12sp"
-                app:layout_constrainedWidth="true"
+                android:background="#61000000"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/tv_name_cardHolder"
-                app:layout_constraintTop_toBottomOf="@+id/tv_name_cardHolder" />
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/tv_name_cardHolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginVertical="4dp"
+                    android:fontFamily="@font/black_ops_one"
+                    android:singleLine="false"
+                    android:text="Jhon Cooper"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_companyName_cardHolder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_gravity="end"
+                    android:fontFamily="@font/black_ops_one"
+                    android:text="Mirrortech Pte Ltd"
+                    android:textColor="@color/whiteColor"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_designation_cardHolder"

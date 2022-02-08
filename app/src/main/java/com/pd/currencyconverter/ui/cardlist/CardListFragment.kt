@@ -44,6 +44,7 @@ class CardListFragment : Fragment() {
             listAdapter = activity?.let { it1 ->
                 EmployeeListAdapter(
                     it1,
+                    activity!!,
                     listEmployee
                 )
             }

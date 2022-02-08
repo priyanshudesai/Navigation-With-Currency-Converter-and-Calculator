@@ -1,5 +1,6 @@
 package com.pd.currencyconverter.adapter
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -19,6 +22,7 @@ import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 
 class EmployeeListAdapter(
     private var mContext: Context,
+    private var mActivity: Activity,
     private var listEmployee: List<EmployeeEntity>?
 ) :
     RecyclerView.Adapter<EmployeeListAdapter.ViewHolder>() {
@@ -37,12 +41,18 @@ class EmployeeListAdapter(
                 )?.last_name,
                 "List Item"
             )
+            val options: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                mActivity,
+                viewHolder.profileIconEmployee,
+                ViewCompat.getTransitionName(viewHolder.profileIconEmployee)!!
+            )
             mContext.startActivity(
                 Intent(mContext, CardDetailsActivity::class.java)
                     .putExtra(
                         ConstantUtils.INTENT_PARSE_DATA,
                         listEmployee?.get(viewHolder.adapterPosition)
-                    )
+                    ),
+                options.toBundle()
             )
         }
 
@@ -62,7 +72,7 @@ class EmployeeListAdapter(
 
         Glide.with(mContext)
             .setDefaultRequestOptions(requestOptions)
-            .load(empData?.card?.front?.small).into(holder.profileIconEmployee)
+            .load(empData?.card?.front?.original).into(holder.profileIconEmployee)
     }
 
     override fun getItemCount(): Int {

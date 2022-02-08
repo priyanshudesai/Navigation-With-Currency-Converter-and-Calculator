@@ -30,12 +30,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageButton
+                android:id="@+id/btn_back_cardDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:elevation="5dp"
+                android:background="@null"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
                 android:id="@+id/iv_profile_cardDetails"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
+                android:transitionName="@string/my_transition"
                 android:src="@drawable/ic_people"
                 app:layout_constraintDimensionRatio="h,9:16"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -60,7 +73,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/black_ops_one"
-                android:text="PO"
+                tools:text="PO"
                 android:textColor="?attr/colorSecondary"
                 android:textSize="14sp"
                 android:textStyle="bold"

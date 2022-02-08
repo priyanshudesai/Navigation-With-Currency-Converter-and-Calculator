@@ -2,18 +2,31 @@ package com.pd.currencyconverter.ui.cardlist
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.preference.PreferenceManager
 import com.pd.currencyconverter.databinding.ActivityCardImageViewBinding
 import com.pd.currencyconverter.utils.ConstantUtils
 import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
+import com.pd.currencyconverter.utils.LocaleHelper
 
 class CardImageViewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCardImageViewBinding
+    private var currentTheme = ConstantUtils.NORMAL
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        currentTheme = PreferenceManager.getDefaultSharedPreferences(this@CardImageViewActivity)
+            .getInt(ConstantUtils.KEY_THEME, ConstantUtils.NORMAL)
+        setTheme(currentTheme)
+        LocaleHelper.setLocale(this)
+
         super.onCreate(savedInstanceState)
         binding = ActivityCardImageViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.photoView.setImageBitmap(ConstantUtils.bitmap)
+
+        binding.btnBackCardImageView.setOnClickListener {
+            super.onBackPressed()
+        }
 //        val webView = binding.wvCardImage
 //        webView.setBackgroundColor(-0x1000000)
 //        webView.scrollBarStyle = WebView.SCROLLBARS_OUTSIDE_OVERLAY

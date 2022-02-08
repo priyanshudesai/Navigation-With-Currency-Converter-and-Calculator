@@ -188,6 +188,10 @@ class CardDetailsActivity : AppCompatActivity() {
                 options.toBundle()
             )
         }
+
+        binding.btnBackCardDetails.setOnClickListener {
+            super.onBackPressed()
+        }
     }
 
     override fun onResume() {

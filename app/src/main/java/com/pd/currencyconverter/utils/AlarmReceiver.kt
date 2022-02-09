@@ -8,6 +8,7 @@ import android.media.AudioAttributes
 import android.net.Uri
 import android.os.Build
 import android.util.Log
+import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.pd.currencyconverter.R
@@ -19,21 +20,21 @@ import java.util.*
 class AlarmReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        Log.e("TAG", "onReceive: ")
+        Log.e("AlarmManager", "onReceive: ")
         if (intent.action.equals("com.pd.currencyconverter.alarm")) {
             val description: String = intent.extras!!.getString("description", "NO DESCRIPTION")
             val id: Int = intent.extras!!.getInt("id", 0)
             createNotificationChannel(context, description)
             notifyNotification(context, id, description)
-        } else if (Intent.ACTION_BOOT_COMPLETED == intent.action) {
-            Log.e("TAG", "onReceive: BOOT COMPLETE")
+        } else if (intent.action.equals("android.intent.action.BOOT_COMPLETED")) {
+            Log.e("AlarmManager", "onReceive: BOOT COMPLETE")
             setAlarmOnBoot(context)
         }
-        Log.e("TAG", "onReceive: OVER")
+        Log.e("AlarmManager", "onReceive: OVER")
     }
 
     private fun createNotificationChannel(context: Context, description: String) {
-        Log.e("TAG", "createNotificationChannel: ")
+        Log.e("AlarmManager", "createNotificationChannel: ")
         val alarmSound: Uri = Uri.parse(
             "android.resource://" + context.packageName.toString() + "/" + R.raw.alarm_sound
         )
@@ -62,7 +63,7 @@ class AlarmReceiver : BroadcastReceiver() {
         )
 
         with(NotificationManagerCompat.from(context)) {
-            Log.e("TAG", "notifyNotification: ")
+            Log.e("AlarmManager", "notifyNotification: ")
             val build = NotificationCompat.Builder(context, ConstantUtils.NOTIFICATION_CHANNEL_ID)
                 .setContentTitle("Alarm Notification")
                 .setContentText(description)
@@ -79,8 +80,10 @@ class AlarmReceiver : BroadcastReceiver() {
     }
 
     private fun setAlarmOnBoot(context: Context) {
+        Toast.makeText(context, "New Alarm", Toast.LENGTH_LONG).show()
+        Log.e("AlarmManager", "setAlarmOnBoot: Set Alarm On Boot Called")
         val alarmDao = RoomAppDb.getAppDatabase((context))?.databaseDao()
-        var alarmData: List<AlarmEntity> = alarmDao?.getAllAlarms()!!
+        val alarmData: List<AlarmEntity> = alarmDao?.getAllAlarms()!!
         alarmData.map {
             lateinit var calendar: Calendar
             calendar.timeInMillis = it.timestamp
@@ -101,7 +104,7 @@ class AlarmReceiver : BroadcastReceiver() {
                 calendar.timeInMillis,
                 pendingIntent
             )
-            Log.e("TAG", "ALARM SET ${it.id}")
+            Log.e("AlarmManager", "ALARM SET ${it.id}")
             return@map true
         }
     }

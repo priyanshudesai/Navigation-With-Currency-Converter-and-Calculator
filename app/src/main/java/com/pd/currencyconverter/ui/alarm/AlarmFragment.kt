@@ -125,7 +125,8 @@ class AlarmFragment : Fragment() {
             id = id,
             date = binding.tvDatePreview.text.toString(),
             time = binding.tvTimePreview.text.toString(),
-            description = binding.etDescription.text.toString()
+            description = binding.etDescription.text.toString(),
+            timestamp = calendar.timeInMillis
         )
         Log.e("TAG", "saveAlarmModel: ")
         alarmViewModel.insertAlarmInfo(alarmEntity)

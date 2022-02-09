@@ -121,11 +121,13 @@ class AlarmFragment : Fragment() {
     }
 
     private fun saveAlarmModel(id: Int) {
+        calendar.set(Calendar.SECOND, 0)
         val alarmEntity = AlarmEntity(
             id = id,
             date = binding.tvDatePreview.text.toString(),
             time = binding.tvTimePreview.text.toString(),
-            description = binding.etDescription.text.toString()
+            description = binding.etDescription.text.toString(),
+            timestamp = calendar.timeInMillis
         )
         Log.e("TAG", "saveAlarmModel: ")
         alarmViewModel.insertAlarmInfo(alarmEntity)

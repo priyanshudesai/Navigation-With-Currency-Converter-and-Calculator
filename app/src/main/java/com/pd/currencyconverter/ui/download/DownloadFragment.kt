@@ -22,6 +22,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.pd.currencyconverter.databinding.FragmentDownloadBinding
+import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -74,16 +75,18 @@ class DownloadFragment : Fragment() {
 
                     val query = DownloadManager.Query().setFilterById(reference)
 
-                    binding.tvProgressDownload.visibility = View.VISIBLE
-                    binding.tvFileNameDownload.visibility = View.VISIBLE
-                    binding.pbDownload.visibility = View.VISIBLE
-                    binding.tvStatusDownload.visibility = View.VISIBLE
+//                    binding.tvProgressDownload.visibility = View.VISIBLE
+//                    binding.tvFileNameDownload.visibility = View.VISIBLE
+//                    binding.pbDownload.visibility = View.VISIBLE
+//                    binding.tvStatusDownload.visibility = View.VISIBLE
+                    binding.cvCardDownload.visibility = View.VISIBLE
 
                     binding.tvFileNameDownload.text = fileName
 
                     lifecycleScope.launchWhenStarted {
                         var lastMsg: String = ""
                         var lastDProgress: Int = 0
+                        var lastBytesDownloaded: Int = 0
                         var downloading = true
                         while (downloading) {
                             val cursor: Cursor = manager.query(query)
@@ -103,7 +106,7 @@ class DownloadFragment : Fragment() {
                             }
                             val status = cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS))
                             val msg: String? = statusMessage(url, File(Environment.DIRECTORY_DOWNLOADS), status)
-                            Log.e("DownloadManager", " Status is :$msg")
+//                            Log.e("DownloadManager", " Status is :$msg")
                             if (msg != lastMsg) {
                                 withContext(Dispatchers.Main) {
                                     binding.tvStatusDownload.text = msg
@@ -115,9 +118,16 @@ class DownloadFragment : Fragment() {
                                 withContext(Dispatchers.Main) {
                                     mProgressBar.progress = dl_progress
                                     binding.tvProgressDownload.text = dl_progress.toString().plus("%")
-//                                    Log.e("DownloadManager", "Status is :$msg")
+                                    Log.e("DownloadManager", "Progress is :$dl_progress")
                                 }
                                 lastDProgress = dl_progress ?: 0
+                            }
+                            if (bytes_downloaded != lastBytesDownloaded) {
+                                withContext(Dispatchers.Main) {
+                                    binding.tvSizeDownload.text = getSize(bytes_downloaded)+"/"+getSize(bytes_total)+" Downloaded"
+                                    Log.e("DownloadManager", getSize(bytes_downloaded)+"/"+getSize(bytes_total)+" Downloaded")
+                                }
+                                lastBytesDownloaded = bytes_downloaded ?: 0
                             }
                             cursor.close()
                         }
@@ -143,5 +153,30 @@ class DownloadFragment : Fragment() {
             else -> "There's nothing to download"
         }
         return msg
+    }
+
+    fun getSize(size: Int): String {
+        var s = ""
+        val kb = (size / 1024).toDouble()
+        val mb = kb / 1024
+        val gb = kb / 1024
+        val tb = kb / 1024
+        if (size < 1024) {
+            s = "$size Bytes"
+        } else if (size >= 1024 && size < 1024 * 1024) {
+            s = String.format("%.2f", kb) + " KB"
+        } else if (size >= 1024 * 1024 && size < 1024 * 1024 * 1024) {
+            s = String.format("%.2f", mb) + " MB"
+        } else if (size >= 1024 * 1024 * 1024 && size < 1024 * 1024 * 1024 * 1024) {
+            s = String.format("%.2f", gb) + " GB"
+        } else if (size >= 1024 * 1024 * 1024 * 1024) {
+            s = String.format("%.2f", tb) + " TB"
+        }
+        return s
+    }
+
+    override fun onResume() {
+        super.onResume()
+        FirebaseAnalyticsHelper.logScreenEvent("DownloadScreen", "DownloadFragment")
     }
 }

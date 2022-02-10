@@ -88,5 +88,6 @@
     <string name="_0" translatable="false">0</string>
     <string name="dot" translatable="false">.</string>
     <string name="menu_alarm">Alarm</string>
+    <string name="menu_download">Download</string>
     <string name="my_transition" translatable="false">MyTransition</string>
 </resources>

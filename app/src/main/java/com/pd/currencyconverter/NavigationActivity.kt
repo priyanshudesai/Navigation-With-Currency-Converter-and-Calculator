@@ -14,6 +14,7 @@ import com.pd.currencyconverter.ui.alarm.AlarmFragment
 import com.pd.currencyconverter.ui.calculator.CalculatorFragment
 import com.pd.currencyconverter.ui.cardlist.CardListFragment
 import com.pd.currencyconverter.ui.currencyconverter.CurrencyConverterFragment
+import com.pd.currencyconverter.ui.download.DownloadFragment
 import com.pd.currencyconverter.ui.settings.SettingsFragment
 import com.pd.currencyconverter.utils.ConstantUtils
 import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
@@ -99,6 +100,7 @@ class NavigationActivity : AppCompatActivity() {
             R.id.nav_calculator -> CalculatorFragment::class.java
             R.id.nav_cardHolder -> CardListFragment::class.java
             R.id.nav_alarm -> AlarmFragment::class.java
+            R.id.nav_download -> DownloadFragment::class.java
             R.id.nav_settings -> SettingsFragment::class.java
             else -> CurrencyConverterFragment::class.java
         }

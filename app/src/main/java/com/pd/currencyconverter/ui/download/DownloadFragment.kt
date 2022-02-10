@@ -88,48 +88,64 @@ class DownloadFragment : Fragment() {
                         var lastDProgress: Int = 0
                         var lastBytesDownloaded: Int = 0
                         var downloading = true
-                        while (downloading) {
-                            val cursor: Cursor = manager.query(query)
-                            cursor.moveToFirst()
+                        Log.e("DownloadManagerT", " Lifecycle is :"+Thread.currentThread().name)
+                        withContext(Dispatchers.Default) {
+                            Log.e("DownloadManagerT", " Default is :"+Thread.currentThread().name)
+                            while (downloading) {
+                                val cursor: Cursor = manager.query(query)
+                                cursor.moveToFirst()
 
-                            val bytes_downloaded = cursor.getInt(
-                                cursor
-                                    .getColumnIndexOrThrow(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR)
-                            )
-                            val bytes_total =
-                                cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_TOTAL_SIZE_BYTES))
+                                val bytes_downloaded = cursor.getInt(
+                                    cursor
+                                        .getColumnIndexOrThrow(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR)
+                                )
+                                val bytes_total =
+                                    cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_TOTAL_SIZE_BYTES))
 
-                            var dl_progress: Int = ((bytes_downloaded * 100L) / bytes_total).toInt()
+                                var dl_progress: Int =
+                                    ((bytes_downloaded * 100L) / bytes_total).toInt()
 
-                            if (cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
-                                downloading = false
-                            }
-                            val status = cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS))
-                            val msg: String? = statusMessage(url, File(Environment.DIRECTORY_DOWNLOADS), status)
+                                if (cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
+                                    downloading = false
+                                }
+                                val status =
+                                    cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_STATUS))
+                                val msg: String? = statusMessage(
+                                    url,
+                                    File(Environment.DIRECTORY_DOWNLOADS),
+                                    status
+                                )
 //                            Log.e("DownloadManager", " Status is :$msg")
-                            if (msg != lastMsg) {
-                                withContext(Dispatchers.Main) {
-                                    binding.tvStatusDownload.text = msg
-                                    Log.e("DownloadManager", "Status is :$msg")
+                                if (msg != lastMsg) {
+                                    withContext(Dispatchers.Main) {
+                                        Log.e("DownloadManagerT", " Main is :"+Thread.currentThread().name)
+                                        binding.tvStatusDownload.text = msg
+                                        Log.e("DownloadManager", "Status is :$msg")
+                                    }
+                                    lastMsg = msg ?: ""
                                 }
-                                lastMsg = msg ?: ""
-                            }
-                            if (dl_progress != lastDProgress) {
-                                withContext(Dispatchers.Main) {
-                                    mProgressBar.progress = dl_progress
-                                    binding.tvProgressDownload.text = dl_progress.toString().plus("%")
-                                    Log.e("DownloadManager", "Progress is :$dl_progress")
+                                if (dl_progress != lastDProgress) {
+                                    withContext(Dispatchers.Main) {
+                                        mProgressBar.progress = dl_progress
+                                        binding.tvProgressDownload.text =
+                                            dl_progress.toString().plus("%")
+                                        Log.e("DownloadManager", "Progress is :$dl_progress")
+                                    }
+                                    lastDProgress = dl_progress ?: 0
                                 }
-                                lastDProgress = dl_progress ?: 0
-                            }
-                            if (bytes_downloaded != lastBytesDownloaded) {
-                                withContext(Dispatchers.Main) {
-                                    binding.tvSizeDownload.text = getSize(bytes_downloaded)+"/"+getSize(bytes_total)+" Downloaded"
-                                    Log.e("DownloadManager", getSize(bytes_downloaded)+"/"+getSize(bytes_total)+" Downloaded")
+                                if (bytes_downloaded != lastBytesDownloaded) {
+                                    withContext(Dispatchers.Main) {
+                                        binding.tvSizeDownload.text =
+                                            getSize(bytes_downloaded) + "/" + getSize(bytes_total) + " Downloaded"
+                                        Log.e(
+                                            "DownloadManager",
+                                            getSize(bytes_downloaded) + "/" + getSize(bytes_total) + " Downloaded"
+                                        )
+                                    }
+                                    lastBytesDownloaded = bytes_downloaded ?: 0
                                 }
-                                lastBytesDownloaded = bytes_downloaded ?: 0
+                                cursor.close()
                             }
-                            cursor.close()
                         }
                     }
                 }else{

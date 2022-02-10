@@ -84,8 +84,9 @@ class AlarmReceiver : BroadcastReceiver() {
         Log.e("AlarmManager", "setAlarmOnBoot: Set Alarm On Boot Called")
         val alarmDao = RoomAppDb.getAppDatabase((context))?.databaseDao()
         val alarmData: List<AlarmEntity> = alarmDao?.getAllAlarms()!!
+        Log.e("AlarmManager", "setAlarmOnBoot: Size "+ alarmData.size)
         alarmData.map {
-            lateinit var calendar: Calendar
+            var calendar: Calendar = Calendar.getInstance()
             calendar.timeInMillis = it.timestamp
             calendar.set(Calendar.SECOND, 0)
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -105,7 +106,7 @@ class AlarmReceiver : BroadcastReceiver() {
                 pendingIntent
             )
             Log.e("AlarmManager", "ALARM SET ${it.id}")
-            return@map true
+            Log.e("AlarmManager", "ALARM TIME ${it.timestamp}")
         }
     }
 

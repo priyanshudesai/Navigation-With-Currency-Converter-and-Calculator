@@ -108,7 +108,9 @@ class AlarmFragment : Fragment() {
                 { picker, hour, minute ->
                     calendar.set(Calendar.HOUR_OF_DAY, hour)
                     calendar.set(Calendar.MINUTE, minute)
+                    calendar.set(Calendar.SECOND, 0)
                     binding.tvTimePreview.text = stf.format(calendar.timeInMillis)
+                    Log.e("AlarmManager", "TimePicker Time"+calendar.timeInMillis)
                 },
                 calendar.get(Calendar.HOUR_OF_DAY),
                 calendar.get(Calendar.MINUTE),

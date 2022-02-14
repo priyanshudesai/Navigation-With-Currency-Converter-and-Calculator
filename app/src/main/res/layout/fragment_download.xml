@@ -11,14 +11,14 @@
         android:id="@+id/et_url_download"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:inputType="textUri"
         android:layout_marginHorizontal="16dp"
-        android:hint="Paste Link"
-        android:textColor="?android:textColorPrimary"
-        android:textColorHint="?android:textColorPrimary"
+        android:layout_marginTop="8dp"
         android:backgroundTint="?android:textColorPrimary"
         android:fontFamily="@font/black_ops_one"
+        android:hint="Paste Link"
+        android:inputType="textUri"
+        android:textColor="?android:textColorPrimary"
+        android:textColorHint="?android:textColorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,70 +27,98 @@
         android:id="@+id/btn_download"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Download"
         android:textColor="?attr/textColor"
         app:backgroundTint="?attr/btnColor"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_url_download" />
 
-    <TextView
-        android:id="@+id/tv_fileName_Download"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_card_download"
         android:visibility="gone"
-        android:fontFamily="@font/black_ops_one"
-        android:singleLine="false"
-        android:textColor="?attr/colorSecondary"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_download" />
-
-    <TextView
-        android:id="@+id/tv_progress_Download"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="@font/black_ops_one"
-        android:textSize="12sp"
-        android:visibility="gone"
-        app:layout_constrainedWidth="true"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_fileName_Download"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/tv_fileName_Download"
-        app:layout_constraintTop_toBottomOf="@+id/btn_download" />
-
-    <ProgressBar
-        android:id="@+id/pb_download"
-        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="8dp"
+        android:background="@drawable/card_ripple_effect"
+        android:backgroundTint="?attr/cardBgColor"
+        android:elevation="6dp"
+        app:cardCornerRadius="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_progress_Download" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_download">
 
-    <TextView
-        android:id="@+id/tv_status_Download"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:fontFamily="@font/black_ops_one"
-        android:textSize="12sp"
-        android:layout_marginTop="8dp"
-        app:layout_constrainedWidth="true"
-        app:layout_constraintEnd_toEndOf="@+id/pb_download"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/pb_download"
-        app:layout_constraintTop_toBottomOf="@+id/pb_download" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/tv_fileName_Download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/black_ops_one"
+                android:singleLine="false"
+                android:textColor="?attr/colorSecondary"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_progress_Download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/black_ops_one"
+                android:textSize="12sp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_fileName_Download"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/tv_fileName_Download" />
+
+            <ProgressBar
+                android:id="@+id/pb_download"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_progress_Download" />
+
+            <TextView
+                android:id="@+id/tv_status_Download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/black_ops_one"
+                android:textSize="12sp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="@+id/pb_download"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/pb_download"
+                app:layout_constraintTop_toBottomOf="@+id/pb_download" />
+
+            <TextView
+                android:id="@+id/tv_size_Download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/black_ops_one"
+                android:textSize="12sp"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintEnd_toEndOf="@+id/pb_download"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/pb_download"
+                app:layout_constraintTop_toBottomOf="@id/tv_status_Download" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,9 +6,9 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.database.Cursor
 import android.net.Uri
-import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Environment
+import android.os.StatFs
 import android.text.format.Formatter
 import android.util.Log
 import android.util.Patterns
@@ -27,6 +27,7 @@ import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.net.URL
 
 
 class DownloadFragment : Fragment() {
@@ -86,19 +87,21 @@ class DownloadFragment : Fragment() {
 
                     binding.tvFileNameDownload.text = fileName
 
-
                     lifecycleScope.launchWhenStarted {
                         var lastMsg: String = ""
                         var lastDProgress: Long = 0
                         var lastBytesDownloaded: Long = 0
                         var downloading = true
+
 //                        Log.e("DownloadManagerT", " Lifecycle is :"+Thread.currentThread().name)
                         withContext(Dispatchers.Default) {
 //                            Log.e("DownloadManagerT", " Default is :"+Thread.currentThread().name)
                             while (downloading) {
+                                Log.e("DownloadManager", "While reached")
                                 val cursor: Cursor = manager.query(query)
                                 cursor.moveToFirst()
                                 if(cursor.moveToFirst()) {
+                                    Log.e("DownloadManager", "Cursor move to first")
                                     val bytes_downloaded = cursor.getLong(
                                         cursor
                                             .getColumnIndexOrThrow(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR)
@@ -117,7 +120,8 @@ class DownloadFragment : Fragment() {
                                     val msg: String? = statusMessage(
                                         url,
                                         File(Environment.DIRECTORY_DOWNLOADS),
-                                        status
+                                        status,
+                                        cursor
                                     )
 //                            Log.e("DownloadManager", " Status is :$msg")
                                     if (msg != lastMsg) {
@@ -146,17 +150,11 @@ class DownloadFragment : Fragment() {
                                                 Formatter.formatFileSize(context, bytes_downloaded) + "/" +
                                                         Formatter.formatFileSize(context, bytes_total) +
                                                         " Downloaded"
-//                                                getSize(bytes_downloaded.toLong()) + "/" + getSize(
-//                                                    bytes_total.toLong()
-//                                                ) + " Downloaded"
                                             Log.e(
                                                 "DownloadManager",
                                                 Formatter.formatFileSize(context, bytes_downloaded) + "/" +
                                                         Formatter.formatFileSize(context, bytes_total) +
                                                         " Downloaded"
-//                                                getSize(bytes_downloaded.toLong()) + "/" + getSize(
-//                                                    bytes_total.toLong()
-//                                                ) + " Downloaded"
                                             )
                                         }
                                         lastBytesDownloaded = bytes_downloaded ?: 0
@@ -174,11 +172,24 @@ class DownloadFragment : Fragment() {
         return root
     }
 
-    private fun statusMessage(url: String, directory: File, status: Int): String? {
+    private fun statusMessage(url: String, directory: File, status: Int, cursor: Cursor): String? {
         var msg = ""
         msg = when (status) {
-            DownloadManager.ERROR_INSUFFICIENT_SPACE -> "Not Enough Space!!"
-            DownloadManager.STATUS_FAILED -> "Download has been failed, please try again"
+            DownloadManager.STATUS_FAILED -> {
+                val stat = StatFs(context?.getExternalFilesDir(null)?.absolutePath)
+                val bytesAvailable = stat.blockSizeLong * stat.availableBlocksLong
+                val myUrl = URL(url)
+                val urlConnection = myUrl.openConnection()
+                urlConnection.connect()
+                val fileSize: Long = urlConnection.contentLength.toLong()
+                var reason =
+                    cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_REASON))
+                return if (reason == DownloadManager.ERROR_INSUFFICIENT_SPACE) {
+                    "Not Enough Space!!\nFile Size : ${Formatter.formatFileSize(context, fileSize)} Available Space : ${Formatter.formatFileSize(context, bytesAvailable)}"
+                } else {
+                    "Download has been failed, please try again"
+                }
+            }
             DownloadManager.STATUS_PAUSED -> "Paused"
             DownloadManager.STATUS_PENDING -> "Pending"
             DownloadManager.STATUS_RUNNING -> "Downloading..."

@@ -1,6 +1,7 @@
 package com.pd.currencyconverter
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +9,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.preference.PreferenceManager
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.messaging.FirebaseMessaging
 import com.pd.currencyconverter.databinding.ActivityNavigationBinding
 import com.pd.currencyconverter.ui.alarm.AlarmFragment
 import com.pd.currencyconverter.ui.calculator.CalculatorFragment
@@ -82,8 +85,17 @@ class NavigationActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             binding.navView.menu.performIdentifierAction(R.id.nav_currencyConverter, 0)
-            title = navView.menu.getItem(0).title
+//            title = navView.menu.getItem(0).title
         }
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.e("TAG", "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+            val token = task.result
+            Log.e("TAG", token.toString())
+        })
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

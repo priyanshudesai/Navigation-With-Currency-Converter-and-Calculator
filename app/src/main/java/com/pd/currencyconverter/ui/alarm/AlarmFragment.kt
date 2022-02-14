@@ -19,7 +19,7 @@ import com.pd.currencyconverter.R
 import com.pd.currencyconverter.adapter.AlarmListAdapter
 import com.pd.currencyconverter.databinding.FragmentAlarmBinding
 import com.pd.currencyconverter.dataclass.AlarmEntity
-import com.pd.currencyconverter.utils.AlarmReceiver
+import com.pd.currencyconverter.services.AlarmReceiver
 import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 import java.text.SimpleDateFormat
 import java.util.*

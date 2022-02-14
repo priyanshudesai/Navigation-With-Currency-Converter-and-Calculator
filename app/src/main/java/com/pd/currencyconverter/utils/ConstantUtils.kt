@@ -6,7 +6,11 @@ import com.pd.currencyconverter.R
 object ConstantUtils {
 
     lateinit var bitmap: Bitmap
-    const val NOTIFICATION_CHANNEL_ID = "ALARM_CHANNEL_ID"
+
+    const val ALARM_NOTIFICATION_CHANNEL_ID = "ALARM_CHANNEL_ID"
+    const val ALARM_NOTIFICATION_CHANNEL_NAME = "Alarm Manager"
+    const val PUSH_NOTIFICATION_CHANNEL_ID = "PUSH_CHANNEL_ID"
+    const val PUSH_NOTIFICATION_CHANNEL_NAME = "Push Notification"
 
     const val KEY_THEME = "mynewtheme"
     const val KEY_LANGUAGE = "mynewlanguage"

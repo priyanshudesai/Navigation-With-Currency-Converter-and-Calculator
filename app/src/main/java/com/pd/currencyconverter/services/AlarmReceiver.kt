@@ -1,4 +1,4 @@
-package com.pd.currencyconverter.utils
+package com.pd.currencyconverter.services
 
 import android.app.*
 import android.content.BroadcastReceiver
@@ -14,6 +14,7 @@ import androidx.core.app.NotificationManagerCompat
 import com.pd.currencyconverter.R
 import com.pd.currencyconverter.database.RoomAppDb
 import com.pd.currencyconverter.dataclass.AlarmEntity
+import com.pd.currencyconverter.utils.ConstantUtils
 import java.util.*
 
 
@@ -40,8 +41,8 @@ class AlarmReceiver : BroadcastReceiver() {
         )
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val notificationChannel = NotificationChannel(
-                ConstantUtils.NOTIFICATION_CHANNEL_ID,
-                "AlarmNotification",
+                ConstantUtils.ALARM_NOTIFICATION_CHANNEL_ID,
+                ConstantUtils.ALARM_NOTIFICATION_CHANNEL_NAME,
                 NotificationManager.IMPORTANCE_HIGH
             )
             notificationChannel.vibrationPattern = longArrayOf(0, 1000, 500, 1000)
@@ -64,13 +65,14 @@ class AlarmReceiver : BroadcastReceiver() {
 
         with(NotificationManagerCompat.from(context)) {
             Log.e("AlarmManager", "notifyNotification: ")
-            val build = NotificationCompat.Builder(context, ConstantUtils.NOTIFICATION_CHANNEL_ID)
-                .setContentTitle("Alarm Notification")
-                .setContentText(description)
-                .setDefaults(Notification.DEFAULT_ALL)
-                .setSmallIcon(R.drawable.ic_alarm)
-                .setSound(alarmSound)
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
+            val build =
+                NotificationCompat.Builder(context, ConstantUtils.ALARM_NOTIFICATION_CHANNEL_ID)
+                    .setContentTitle(ConstantUtils.ALARM_NOTIFICATION_CHANNEL_NAME)
+                    .setContentText(description)
+                    .setDefaults(Notification.DEFAULT_ALL)
+                    .setSmallIcon(R.drawable.ic_alarm)
+                    .setSound(alarmSound)
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
 
             notify(id, build.build())
         }

@@ -15,8 +15,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.pd.currencyconverter.R
 import com.pd.currencyconverter.dataclass.AlarmEntity
+import com.pd.currencyconverter.services.AlarmReceiver
 import com.pd.currencyconverter.ui.alarm.AlarmViewModel
-import com.pd.currencyconverter.utils.AlarmReceiver
 
 class AlarmListAdapter(
     private var context: Context,

@@ -90,4 +90,5 @@
     <string name="menu_alarm">Alarm</string>
     <string name="menu_download">Download</string>
     <string name="my_transition" translatable="false">MyTransition</string>
+    <string name="token">Token</string>
 </resources>

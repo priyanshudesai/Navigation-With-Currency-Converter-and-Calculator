@@ -29,7 +29,7 @@
         android:title="Firebase">
         <Preference
             android:key="token"
-            android:title="Token"
+            android:title="@string/token"
             app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 </PreferenceScreen>

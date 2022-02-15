@@ -40,7 +40,10 @@ class DownloadFragment : Fragment() {
         binding = FragmentDownloadBinding.inflate(inflater, container, false)
         var root = binding.root
 
-        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
+            )
             != PackageManager.PERMISSION_GRANTED
         ) {
             Toast.makeText(context, " Allow the Storage Permission", Toast.LENGTH_LONG).show()
@@ -53,10 +56,11 @@ class DownloadFragment : Fragment() {
         binding.etUrlDownload.setText("https://research.nhm.org/pdfs/10840/10840.pdf")
 
         binding.btnDownload.setOnClickListener {
-            if (binding.etUrlDownload.text.isNotEmpty()){
+            if (binding.etUrlDownload.text.isNotEmpty()) {
                 val url = binding.etUrlDownload.text.toString()
-                if (Patterns.WEB_URL.matcher(url).matches()){
-                    var manager: DownloadManager = activity?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+                if (Patterns.WEB_URL.matcher(url).matches()) {
+                    var manager: DownloadManager =
+                        activity?.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
                     val uri: Uri =
                         Uri.parse(url)
                     val request = DownloadManager.Request(uri)
@@ -65,18 +69,20 @@ class DownloadFragment : Fragment() {
                         URLUtil.guessFileName(url, null, MimeTypeMap.getFileExtensionFromUrl(url))
 
 
-                    request.setTitle(fileName);
+                    request.setTitle(fileName)
                     request.setDescription("Downloading")
                     request.allowScanningByMediaScanner()
                     request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
                     request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS,fileName)
+                    request.setDestinationInExternalPublicDir(
+                        Environment.DIRECTORY_DOWNLOADS,
+                        fileName
+                    )
                     val reference: Long = manager.enqueue(request)
 
                     val mProgressBar = binding.pbDownload
 
                     val query = DownloadManager.Query().setFilterById(reference)
-
 
 
 //                    binding.tvProgressDownload.visibility = View.VISIBLE
@@ -100,7 +106,7 @@ class DownloadFragment : Fragment() {
                                 Log.e("DownloadManager", "While reached")
                                 val cursor: Cursor = manager.query(query)
                                 cursor.moveToFirst()
-                                if(cursor.moveToFirst()) {
+                                if (cursor.moveToFirst()) {
                                     Log.e("DownloadManager", "Cursor move to first")
                                     val bytes_downloaded = cursor.getLong(
                                         cursor
@@ -142,29 +148,41 @@ class DownloadFragment : Fragment() {
                                                 dl_progress.toString().plus("%")
                                             Log.e("DownloadManager", "Progress is :$dl_progress")
                                         }
-                                        lastDProgress = dl_progress ?: 0
+                                        lastDProgress = dl_progress
                                     }
                                     if (bytes_downloaded != lastBytesDownloaded) {
                                         withContext(Dispatchers.Main) {
                                             binding.tvSizeDownload.text =
-                                                Formatter.formatFileSize(context, bytes_downloaded) + "/" +
-                                                        Formatter.formatFileSize(context, bytes_total) +
+                                                Formatter.formatFileSize(
+                                                    context,
+                                                    bytes_downloaded
+                                                ) + "/" +
+                                                        Formatter.formatFileSize(
+                                                            context,
+                                                            bytes_total
+                                                        ) +
                                                         " Downloaded"
                                             Log.e(
                                                 "DownloadManager",
-                                                Formatter.formatFileSize(context, bytes_downloaded) + "/" +
-                                                        Formatter.formatFileSize(context, bytes_total) +
+                                                Formatter.formatFileSize(
+                                                    context,
+                                                    bytes_downloaded
+                                                ) + "/" +
+                                                        Formatter.formatFileSize(
+                                                            context,
+                                                            bytes_total
+                                                        ) +
                                                         " Downloaded"
                                             )
                                         }
-                                        lastBytesDownloaded = bytes_downloaded ?: 0
+                                        lastBytesDownloaded = bytes_downloaded
                                     }
                                 }
                                 cursor.close()
                             }
                         }
                     }
-                }else{
+                } else {
                     binding.etUrlDownload.error = "Enter Valid URL"
                 }
             }
@@ -185,7 +203,12 @@ class DownloadFragment : Fragment() {
                 var reason =
                     cursor.getInt(cursor.getColumnIndexOrThrow(DownloadManager.COLUMN_REASON))
                 return if (reason == DownloadManager.ERROR_INSUFFICIENT_SPACE) {
-                    "Not Enough Space!!\nFile Size : ${Formatter.formatFileSize(context, fileSize)} Available Space : ${Formatter.formatFileSize(context, bytesAvailable)}"
+                    "Not Enough Space!!\nFile Size : ${
+                        Formatter.formatFileSize(
+                            context,
+                            fileSize
+                        )
+                    } Available Space : ${Formatter.formatFileSize(context, bytesAvailable)}"
                 } else {
                     "Download has been failed, please try again"
                 }

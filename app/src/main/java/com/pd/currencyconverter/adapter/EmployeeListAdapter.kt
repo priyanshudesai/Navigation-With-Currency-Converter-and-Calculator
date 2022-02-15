@@ -36,9 +36,9 @@ class EmployeeListAdapter(
         viewHolder.cardView.setOnClickListener {
             FirebaseAnalyticsHelper.logClickEvent(
                 listEmployee?.get(viewHolder.adapterPosition)?.id.toString(),
-                listEmployee?.get(viewHolder.adapterPosition)?.first_name + " " + listEmployee?.get(
+                listEmployee?.get(viewHolder.adapterPosition)?.firstName + " " + listEmployee?.get(
                     viewHolder.adapterPosition
-                )?.last_name,
+                )?.lastName,
                 "List Item"
             )
             val options: ActivityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
@@ -62,9 +62,9 @@ class EmployeeListAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val empData: EmployeeEntity? = listEmployee?.get(position)
 
-        holder.nameEmployee.text = empData?.first_name + " " + empData?.last_name
+        holder.nameEmployee.text = empData?.firstName + " " + empData?.lastName
         holder.designationEmployee.text = empData?.designation
-        holder.nameCompany.text = empData?.company_info?.name
+        holder.nameCompany.text = empData?.companyInfo?.name
 
         val requestOptions = RequestOptions()
         requestOptions.placeholder(R.drawable.ic_placeholder)

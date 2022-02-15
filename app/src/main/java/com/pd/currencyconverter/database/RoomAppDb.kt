@@ -9,7 +9,7 @@ import com.pd.currencyconverter.dataclass.AlarmEntity
 import com.pd.currencyconverter.dataclass.EmployeeEntity
 import com.pd.currencyconverter.utils.ConstantUtils
 
-@Database(entities = [EmployeeEntity::class,AlarmEntity::class], version = 1)
+@Database(entities = [EmployeeEntity::class, AlarmEntity::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class RoomAppDb : RoomDatabase() {
     abstract fun databaseDao(): DatabaseDao?

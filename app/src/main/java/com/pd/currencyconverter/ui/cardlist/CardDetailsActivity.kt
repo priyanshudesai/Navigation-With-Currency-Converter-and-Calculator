@@ -89,10 +89,10 @@ class CardDetailsActivity : AppCompatActivity() {
 
         binding.tvCreatedAtCardDetails.text = finalDate
         binding.cardContactInfoDetails.tvNameCardDetails.text =
-            (data.first_name + " " + data.last_name)
+            (data.firstName + " " + data.lastName)
         binding.cardContactInfoDetails.tvDesignationCardDetails.text = data.designation
         binding.cardContactInfoDetails.tvDecisionMakerCardDetails.text =
-            if (data.is_decisionmaker) getString(R.string.yes) else getString(R.string.no)
+            if (data.isDecisionMaker) getString(R.string.yes) else getString(R.string.no)
         val phoneList = data.phones
         for (phoneNumber in phoneList) {
             if (binding.cardContactInfoDetails.tvPhoneNumberCardDetails.text.isEmpty()) {
@@ -128,30 +128,30 @@ class CardDetailsActivity : AppCompatActivity() {
         }
 
         binding.cardCompanyInfoDetails.tvNameCompanyDetails.text =
-            if (data.company_info.name == null || data.company_info.name.isEmpty()) getString(R.string.NA) else data.company_info.name
+            if (data.companyInfo.name == null || data.companyInfo.name.isEmpty()) getString(R.string.NA) else data.companyInfo.name
         binding.cardCompanyInfoDetails.tvIndustryCompanyDetails.text =
-            if (data.company_info.industry_name == null || data.company_info.industry_name.isEmpty()) getString(
+            if (data.companyInfo.industryName == null || data.companyInfo.industryName.isEmpty()) getString(
                 R.string.NA
-            ) else data.company_info.industry_name
+            ) else data.companyInfo.industryName
         binding.cardCompanyInfoDetails.tvTypeCompanyDetails.text =
             if (data.type == null || data.type.isEmpty()) getString(R.string.NA) else data.type
         binding.cardCompanyInfoDetails.tvPhoneNumberCompanyDetails.text =
-            if (data.company_info.phone_number == null || data.company_info.phone_number.isEmpty()) getString(
+            if (data.companyInfo.phoneNumber == null || data.companyInfo.phoneNumber.isEmpty()) getString(
                 R.string.NA
-            ) else data.company_info.phone_number
+            ) else data.companyInfo.phoneNumber
         binding.cardCompanyInfoDetails.tvWebsiteCompanyDetails.text =
-            if (data.company_info.website == null || data.company_info.website.isEmpty()) getString(
+            if (data.companyInfo.website == null || data.companyInfo.website.isEmpty()) getString(
                 R.string.NA
-            ) else data.company_info.website
+            ) else data.companyInfo.website
         binding.cardCompanyInfoDetails.tvAddressCompanyDetails.text =
-            if (data.company_info.address == null || data.company_info.address.toString()
+            if (data.companyInfo.address == null || data.companyInfo.address.toString()
                     .isEmpty()
-            ) getString(R.string.NA) else data.company_info.address as CharSequence?
+            ) getString(R.string.NA) else data.companyInfo.address as CharSequence?
                 ?: getString(R.string.NA)
         binding.cardCompanyInfoDetails.tvCampaignEmailCompanyDetails.text =
-            if (data.company_info.campaign_email == null || data.company_info.campaign_email.isEmpty()) getString(
+            if (data.companyInfo.campaignEmail == null || data.companyInfo.campaignEmail.isEmpty()) getString(
                 R.string.NA
-            ) else data.company_info.campaign_email
+            ) else data.companyInfo.campaignEmail
 
 
         val convertedTagsArray: List<String> = data.tags.split(",")
@@ -180,7 +180,7 @@ class CardDetailsActivity : AppCompatActivity() {
             ConstantUtils.bitmap = bitmapImage
             FirebaseAnalyticsHelper.logClickEvent(
                 data.id.toString(),
-                data.first_name + " " + data.last_name,
+                data.firstName + " " + data.lastName,
                 "View Image"
             )
             startActivity(

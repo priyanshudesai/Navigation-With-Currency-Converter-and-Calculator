@@ -1,7 +1,9 @@
 package com.pd.currencyconverter.dataclass
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 import com.pd.currencyconverter.utils.ConstantUtils
 import java.io.Serializable
 
@@ -9,18 +11,28 @@ import java.io.Serializable
 data class EmployeeEntity(
     @PrimaryKey(autoGenerate = false)
     val id: Int = 0,
+    @SerializedName("campaign_email")
+    @ColumnInfo(name = "campaign_email")
     val created_at: String,
     val designation: String,
     val emails: List<Email>,
-    val first_name: String,
-    val is_decisionmaker: Boolean,
-    val last_name: String,
+    @SerializedName("first_name")
+    @ColumnInfo(name = "first_name")
+    val firstName: String,
+    @SerializedName("is_decisionmaker")
+    @ColumnInfo(name = "is_decisionmaker")
+    val isDecisionMaker: Boolean,
+    @SerializedName("last_name")
+    @ColumnInfo(name = "last_name")
+    val lastName: String,
     val phones: List<Phone>,
     val status: String,
     val tags: String,
     val type: String,
     val card: Card,
-    val company_info: CompanyInfo,
+    @SerializedName("company_info")
+    @ColumnInfo(name = "company_info")
+    val companyInfo: CompanyInfo,
 ) : Serializable
 
 

@@ -4,7 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.pd.currencyconverter.utils.ConstantUtils
 import java.io.Serializable
-import java.sql.Timestamp
 
 @Entity(tableName = ConstantUtils.TABLE_NAME_ALARM_INFORMATION)
 data class AlarmEntity(

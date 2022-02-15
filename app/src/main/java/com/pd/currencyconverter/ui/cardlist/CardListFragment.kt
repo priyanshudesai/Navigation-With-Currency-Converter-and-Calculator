@@ -52,7 +52,8 @@ class CardListFragment : Fragment() {
             binding.rvCardFrag.adapter?.notifyDataSetChanged()
 
             if (listEmployee?.isNotEmpty() == true) {
-                binding.tvTotalCardFrag.text = listEmployee?.size.toString() + getString(R.string.cards_total)
+                binding.tvTotalCardFrag.text =
+                    listEmployee?.size.toString() + getString(R.string.cards_total)
 
                 binding.pbCard.visibility = View.GONE
                 binding.tvTotalCardFrag.visibility = View.VISIBLE
@@ -147,10 +148,10 @@ class CardListFragment : Fragment() {
         if (listEmployee != null && listEmployee?.isNotEmpty() == true) {
             val filteredList: List<EmployeeEntity> =
                 listEmployee!!.filter { item ->
-                    item.first_name.trim().lowercase().startsWith(text.lowercase()) ||
-                            item.last_name.trim().lowercase().startsWith(text.lowercase()) ||
+                    item.firstName.trim().lowercase().startsWith(text.lowercase()) ||
+                            item.lastName.trim().lowercase().startsWith(text.lowercase()) ||
                             item.designation.trim().lowercase().startsWith(text.lowercase()) ||
-                            item.company_info.name.trim().lowercase().startsWith(text.lowercase())
+                            item.companyInfo.name.trim().lowercase().startsWith(text.lowercase())
                 }
 
             if (filteredList.isEmpty()) {
@@ -159,7 +160,8 @@ class CardListFragment : Fragment() {
             } else {
                 listAdapter?.filterList(filteredList)
             }
-            binding.tvTotalCardFrag.text = filteredList.size.toString() + getString(R.string.cards_total)
+            binding.tvTotalCardFrag.text =
+                filteredList.size.toString() + getString(R.string.cards_total)
         } else Toast.makeText(context, ConstantUtils.MSG_NO_DATA_FOUND, Toast.LENGTH_SHORT).show()
     }
 

@@ -97,6 +97,9 @@ class CurrencyConverterFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        FirebaseAnalyticsHelper.logScreenEvent("CurrencyConverterScreen", "CurrencyConverterFragment")
+        FirebaseAnalyticsHelper.logScreenEvent(
+            "CurrencyConverterScreen",
+            "CurrencyConverterFragment"
+        )
     }
 }

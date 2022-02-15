@@ -48,11 +48,12 @@ class CardImageViewActivity : AppCompatActivity() {
 //                webView.loadDataWithBaseURL(null, html, "text/html", "UTF-8", null)
 //            }
 //        }
-         //webView.getSettings().setDisplayZoomControls(false);  // API 11
+        //webView.getSettings().setDisplayZoomControls(false);  // API 11
 
 
 //        webview.loadDataWithBaseURL("file:///android_asset/", html, "text/html", "utf-8", "")
     }
+
     override fun onResume() {
         super.onResume()
         FirebaseAnalyticsHelper.logScreenEvent("CardImageViewScreen", "CardImageViewActivity")

@@ -7,20 +7,29 @@
 
         <ListPreference
             android:defaultValue="@string/def_theme"
+            android:dialogTitle="@string/theme_dialog_title"
             android:entries="@array/themes"
             android:entryValues="@array/themes"
             android:key="theme"
-            app:useSimpleSummaryProvider="true"
             android:title="@string/theme_dialog_title"
-            android:dialogTitle="@string/theme_dialog_title"/>
+            app:useSimpleSummaryProvider="true" />
 
         <ListPreference
             android:defaultValue="@string/def_language"
+            android:dialogTitle="@string/language_dialog_title"
             android:entries="@array/languages"
             android:entryValues="@array/languages"
             android:key="language"
-            app:useSimpleSummaryProvider="true"
             android:title="@string/language_dialog_title"
-            android:dialogTitle="@string/language_dialog_title"/>
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="Firebase"
+        android:title="Firebase">
+        <Preference
+            android:key="token"
+            android:title="Token"
+            app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 </PreferenceScreen>

@@ -15,10 +15,10 @@ class CalculatorFragment : Fragment() {
     private var _binding: FragmentCalculatorBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var firstText : TextView
-    private lateinit var operatorText : TextView
-    private lateinit var secondText : TextView
-    private lateinit var answerText : TextView
+    private lateinit var firstText: TextView
+    private lateinit var operatorText: TextView
+    private lateinit var secondText: TextView
+    private lateinit var answerText: TextView
     private var operatorSet = false
 
     override fun onCreateView(
@@ -38,13 +38,13 @@ class CalculatorFragment : Fragment() {
 
         //Operands
         binding.btnDot.setOnClickListener {
-            if (secondText.text.isNotEmpty() && !secondText.text.contains(getString(R.string.dot))){
+            if (secondText.text.isNotEmpty() && !secondText.text.contains(getString(R.string.dot))) {
                 setTextData(getString(R.string.dot))
-            } else if (firstText.text.isNotEmpty() && !firstText.text.contains(getString(R.string.dot)) && !operatorSet){
+            } else if (firstText.text.isNotEmpty() && !firstText.text.contains(getString(R.string.dot)) && !operatorSet) {
                 setTextData(getString(R.string.dot))
-            } else if (firstText.text.isEmpty()){
+            } else if (firstText.text.isEmpty()) {
                 firstText.text = "0."
-            } else if (operatorSet && secondText.text.isEmpty()){
+            } else if (operatorSet && secondText.text.isEmpty()) {
                 secondText.text = "0."
             }
         }
@@ -98,7 +98,7 @@ class CalculatorFragment : Fragment() {
 
         //Equals
         binding.btnEqual.setOnClickListener {
-            if (answerText.text.isNotEmpty()){
+            if (answerText.text.isNotEmpty()) {
                 firstText.text = answerText.text
                 operatorSet = false
                 operatorText.text = ""
@@ -106,7 +106,7 @@ class CalculatorFragment : Fragment() {
                 answerText.text = ""
             } else equalToCalculate()
         }
-        
+
         //Clear functions
         binding.btnClear.setOnClickListener {
             operatorSet = false
@@ -116,10 +116,10 @@ class CalculatorFragment : Fragment() {
             answerText.text = ""
         }
         binding.btnBack.setOnClickListener {
-            if (secondText.text.isNotEmpty()){
+            if (secondText.text.isNotEmpty()) {
                 secondText.text = secondText.text.toString().dropLast(1)
                 answerText.text = ""
-            } else if (firstText.text.isNotEmpty()){
+            } else if (firstText.text.isNotEmpty()) {
                 operatorSet = false
                 operatorText.text = ""
                 firstText.text = firstText.text.toString().dropLast(1)
@@ -134,7 +134,7 @@ class CalculatorFragment : Fragment() {
         _binding = null
     }
 
-    private fun setTextData(operand : String) {
+    private fun setTextData(operand: String) {
         if (!operatorSet) {
             firstText.text = firstText.text.toString().plus(operand)
         } else {
@@ -143,9 +143,9 @@ class CalculatorFragment : Fragment() {
         }
     }
 
-    private fun setOperatorData(operator: String){
+    private fun setOperatorData(operator: String) {
         if (firstText.text.isNotEmpty()) {
-            if (answerText.text.isNotEmpty()){
+            if (answerText.text.isNotEmpty()) {
                 firstText.text = answerText.text
                 operatorText.text = operator
                 secondText.text = ""
@@ -159,8 +159,8 @@ class CalculatorFragment : Fragment() {
         }
     }
 
-    private fun equalToCalculate(){
-        if (firstText.text.isNotEmpty() && secondText.text.isNotEmpty()){
+    private fun equalToCalculate() {
+        if (firstText.text.isNotEmpty() && secondText.text.isNotEmpty()) {
             val firstNumber = firstText.text.toString().toDouble()
             val secondNumber = secondText.text.toString().toDouble()
             val operator = operatorText.text.toString()
@@ -182,8 +182,8 @@ class CalculatorFragment : Fragment() {
                     result = firstNumber % secondNumber
                 }
             }
-            if (result.toString().endsWith(".0")){
-                result.toString().subSequence(0,result.toString().length-2)
+            if (result.toString().endsWith(".0")) {
+                result.toString().subSequence(0, result.toString().length - 2)
             }
             answerText.text = result.toString()
         }

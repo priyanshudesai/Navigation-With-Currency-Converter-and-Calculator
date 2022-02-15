@@ -95,6 +95,8 @@ class NavigationActivity : AppCompatActivity() {
             }
             val token = task.result
             Log.e("TAG", token.toString())
+            PreferenceManager.getDefaultSharedPreferences(this).edit()
+                .putString(ConstantUtils.KEY_TOKEN, token.toString()).apply()
         })
     }
 

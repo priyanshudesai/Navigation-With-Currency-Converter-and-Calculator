@@ -9,14 +9,14 @@ object FirebaseAnalyticsHelper {
 
     var firebaseAnalytics: FirebaseAnalytics = Firebase.analytics
 
-    fun logScreenEvent(screenName: String,screenClass: String){
+    fun logScreenEvent(screenName: String, screenClass: String) {
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
             param(FirebaseAnalytics.Param.SCREEN_NAME, screenName)
             param(FirebaseAnalytics.Param.SCREEN_CLASS, screenClass)
         }
     }
 
-    fun logClickEvent(itemId: String, itemName: String, type: String){
+    fun logClickEvent(itemId: String, itemName: String, type: String) {
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.VIEW_ITEM) {
             param(FirebaseAnalytics.Param.ITEM_ID, itemId)
             param(FirebaseAnalytics.Param.ITEM_NAME, itemName)

@@ -1,13 +1,21 @@
 package com.pd.currencyconverter.dataclass
 
+import androidx.room.ColumnInfo
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class CompanyInfo(
     val address: Any,
-    val campaign_email: String,
+    @SerializedName("campaign_email")
+    @ColumnInfo(name = "campaign_email")
+    val campaignEmail: String,
     val email: Any,
-    val industry_name: String,
+    @SerializedName("industry_name")
+    @ColumnInfo(name = "industry_name")
+    val industryName: String,
     val name: String,
-    val phone_number: String,
+    @SerializedName("phone_number")
+    @ColumnInfo(name = "phone_number")
+    val phoneNumber: String,
     val website: String
 ) : Serializable

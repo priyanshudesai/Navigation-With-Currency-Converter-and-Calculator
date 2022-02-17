@@ -11,13 +11,13 @@ import com.pd.currencyconverter.utils.ConstantUtils
 @Dao
 interface DatabaseDao {
     @Query(ConstantUtils.SELECT_QUERY_FOR_ALL_CARDS)
-    fun getAllEmployees(): List<EmployeeEntity>?
+    fun getAllEmployees(): MutableList<EmployeeEntity>?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertEmployees(employee: List<EmployeeEntity>?)
+    fun insertEmployees(employee: MutableList<EmployeeEntity>?)
 
     @Query(ConstantUtils.SELECT_QUERY_FOR_ALL_ALARM)
-    fun getAllAlarms(): List<AlarmEntity>?
+    fun getAllAlarms(): MutableList<AlarmEntity>?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAlarm(alarm: AlarmEntity?)

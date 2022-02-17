@@ -7,14 +7,14 @@ import com.pd.currencyconverter.database.RoomAppDb
 import com.pd.currencyconverter.dataclass.EmployeeEntity
 
 class CardListViewModel(application: Application) : AndroidViewModel(application) {
-    var allEmployee: MutableLiveData<List<EmployeeEntity>> = MutableLiveData()
+    var allEmployee: MutableLiveData<MutableList<EmployeeEntity>> = MutableLiveData()
 
     init {
         getAllEmployee()
     }
 
 
-    fun getAllEmployeeObservers(): MutableLiveData<List<EmployeeEntity>> {
+    fun getAllEmployeeObservers(): MutableLiveData<MutableList<EmployeeEntity>> {
         return allEmployee
     }
 
@@ -25,7 +25,7 @@ class CardListViewModel(application: Application) : AndroidViewModel(application
 
     }
 
-    fun insertEmployeesInfo(entity: List<EmployeeEntity>) {
+    fun insertEmployeesInfo(entity: MutableList<EmployeeEntity>) {
         val employeeDao = RoomAppDb.getAppDatabase((getApplication()))?.databaseDao()
         employeeDao?.insertEmployees(entity)
         getAllEmployee()

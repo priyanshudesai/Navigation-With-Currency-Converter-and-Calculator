@@ -6,6 +6,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -20,10 +21,12 @@ import com.pd.currencyconverter.ui.cardlist.CardDetailsActivity
 import com.pd.currencyconverter.utils.ConstantUtils
 import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 
+
 class EmployeeListAdapter(
     private var mContext: Context,
     private var mActivity: Activity,
-    private var listEmployee: List<EmployeeEntity>?
+    private var listEmployee: MutableList<EmployeeEntity>?,
+    private var mComminication: FragmentCommunication
 ) :
     RecyclerView.Adapter<EmployeeListAdapter.ViewHolder>() {
 
@@ -34,8 +37,6 @@ class EmployeeListAdapter(
         val viewHolder = ViewHolder(itemView)
 
         viewHolder.cardView.setOnClickListener {
-            listEmployee?.drop(viewHolder.adapterPosition)
-            notifyDataSetChanged()
             FirebaseAnalyticsHelper.logClickEvent(
                 listEmployee?.get(viewHolder.adapterPosition)?.id.toString(),
                 listEmployee?.get(viewHolder.adapterPosition)?.firstName + " " + listEmployee?.get(
@@ -56,6 +57,13 @@ class EmployeeListAdapter(
                     ),
                 options.toBundle()
             )
+        }
+
+        viewHolder.deleteIconCard.setOnClickListener {
+//            listEmployee = ArrayList<EmployeeEntity>()
+            listEmployee?.removeAt(viewHolder.adapterPosition)
+            notifyDataSetChanged()
+            mComminication.respond(listEmployee?.size.toString())
         }
 
         return viewHolder
@@ -81,7 +89,7 @@ class EmployeeListAdapter(
         return listEmployee!!.size
     }
 
-    fun filterList(filterList: List<EmployeeEntity>?) {
+    fun filterList(filterList: MutableList<EmployeeEntity>) {
         listEmployee = filterList
         notifyDataSetChanged()
     }
@@ -93,5 +101,10 @@ class EmployeeListAdapter(
         var nameCompany: TextView = itemView.findViewById(R.id.tv_companyName_cardHolder)
         var cardView: CardView = itemView.findViewById(R.id.cv_card_cardHolder)
         var profileIconEmployee: ImageView = itemView.findViewById(R.id.iv_icon_cardHolder)
+        var deleteIconCard: ImageButton = itemView.findViewById(R.id.ib_delete_cardHolder)
+    }
+
+    interface FragmentCommunication {
+        fun respond(size: String)
     }
 }

@@ -62,5 +62,7 @@
     <string name="emirati_dirhams">अमीरात दिरहम</string>
     <string name="australian_dollar">ऑस्ट्रलियन डॉलर</string>
     <string name="menu_alarm">अलार्म</string>
+    <string name="menu_timer">टाइमर</string>
+    <string name="menu_download">डाउनलोड</string>
     <string name="token">टोकन</string>
 </resources>

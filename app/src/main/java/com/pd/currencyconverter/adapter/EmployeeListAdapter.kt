@@ -34,6 +34,8 @@ class EmployeeListAdapter(
         val viewHolder = ViewHolder(itemView)
 
         viewHolder.cardView.setOnClickListener {
+            listEmployee?.drop(viewHolder.adapterPosition)
+            notifyDataSetChanged()
             FirebaseAnalyticsHelper.logClickEvent(
                 listEmployee?.get(viewHolder.adapterPosition)?.id.toString(),
                 listEmployee?.get(viewHolder.adapterPosition)?.firstName + " " + listEmployee?.get(

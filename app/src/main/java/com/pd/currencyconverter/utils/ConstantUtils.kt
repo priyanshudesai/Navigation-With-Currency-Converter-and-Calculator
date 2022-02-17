@@ -9,8 +9,12 @@ object ConstantUtils {
 
     const val ALARM_NOTIFICATION_CHANNEL_ID = "ALARM_CHANNEL_ID"
     const val ALARM_NOTIFICATION_CHANNEL_NAME = "Alarm Manager"
+    const val TIMER_NOTIFICATION_CHANNEL_ID = "TIMER_CHANNEL_ID"
+    const val TIMER_NOTIFICATION_CHANNEL_NAME = "Timer Service"
     const val PUSH_NOTIFICATION_CHANNEL_ID = "PUSH_CHANNEL_ID"
     const val PUSH_NOTIFICATION_CHANNEL_NAME = "Push Notification"
+
+    const val KEY_TIMER_CHECK = "timer_check"
 
     const val KEY_THEME = "mynewtheme"
     const val KEY_LANGUAGE = "mynewlanguage"

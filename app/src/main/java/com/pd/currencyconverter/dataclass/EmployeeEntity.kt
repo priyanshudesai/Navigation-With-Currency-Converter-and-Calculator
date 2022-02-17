@@ -11,9 +11,9 @@ import java.io.Serializable
 data class EmployeeEntity(
     @PrimaryKey(autoGenerate = false)
     val id: Int = 0,
-    @SerializedName("campaign_email")
-    @ColumnInfo(name = "campaign_email")
-    val created_at: String,
+    @SerializedName("created_at")
+    @ColumnInfo(name = "created_at")
+    val createdAt: String,
     val designation: String,
     val emails: List<Email>,
     @SerializedName("first_name")

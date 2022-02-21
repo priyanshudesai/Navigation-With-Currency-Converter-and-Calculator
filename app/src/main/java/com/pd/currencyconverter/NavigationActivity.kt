@@ -190,11 +190,11 @@ class NavigationActivity : AppCompatActivity() {
                 broadcastIntent.setClass(this, MyBroadcastReceiver::class.java)
                 broadcastIntent.putExtra("time", NavigationActivity.time)
                 sendBroadcast(broadcastIntent)
-                Log.e("Timer Service", "Frag onDestroy: Broadcast")
+                Log.e("Timer Service", "Nav activity onDestroy: Broadcast")
             }
-            Log.e("Timer Service", "Frag onDestroy: Already service Broadcast")
+            Log.e("Timer Service", "Nav activity onDestroy: Already service Broadcast")
         } else {
-            Log.e("Timer Service", "Frag onDestroy: Check OFF")
+            Log.e("Timer Service", "Nav activity onDestroy: Check OFF")
         }
         super.onDestroy()
     }

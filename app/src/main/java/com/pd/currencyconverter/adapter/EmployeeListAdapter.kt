@@ -21,12 +21,11 @@ import com.pd.currencyconverter.ui.cardlist.CardDetailsActivity
 import com.pd.currencyconverter.utils.ConstantUtils
 import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 
-
 class EmployeeListAdapter(
     private var mContext: Context,
     private var mActivity: Activity,
     private var listEmployee: MutableList<EmployeeEntity>?,
-    private var mComminication: FragmentCommunication
+    private var mCommunication: FragmentCommunication
 ) :
     RecyclerView.Adapter<EmployeeListAdapter.ViewHolder>() {
 
@@ -63,7 +62,7 @@ class EmployeeListAdapter(
 //            listEmployee = ArrayList<EmployeeEntity>()
             listEmployee?.removeAt(viewHolder.adapterPosition)
             notifyDataSetChanged()
-            mComminication.respond(listEmployee?.size.toString())
+            mCommunication.respond(listEmployee?.size.toString())
         }
 
         return viewHolder

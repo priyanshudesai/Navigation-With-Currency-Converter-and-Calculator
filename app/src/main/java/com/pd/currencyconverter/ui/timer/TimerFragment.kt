@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
 import com.pd.currencyconverter.NavigationActivity
+import com.pd.currencyconverter.R
 import com.pd.currencyconverter.databinding.FragmentTimerBinding
 import com.pd.currencyconverter.services.TimerService
 import com.pd.currencyconverter.utils.ConstantUtils
@@ -59,7 +60,7 @@ class TimerFragment : Fragment() {
             .putBoolean(ConstantUtils.KEY_TIMER_CHECK, true).apply()
         serviceIntent.putExtra(TimerService.TIME_EXTRA, NavigationActivity.time)
         requireActivity().startService(serviceIntent)
-        binding.btnStartTimer.text = "Stop"
+        binding.btnStartTimer.text = context?.getString(R.string.stop_timer)
 //        binding.startStopButton.icon = getDrawable(R.drawable.ic_baseline_pause_24)
         timerStarted = true
     }
@@ -67,7 +68,7 @@ class TimerFragment : Fragment() {
     private fun stopTimer() {
         PreferenceManager.getDefaultSharedPreferences(requireActivity()).edit()
             .putBoolean(ConstantUtils.KEY_TIMER_CHECK, false).apply()
-        binding.btnStartTimer.text = "Start"
+        binding.btnStartTimer.text = context?.getString(R.string.start_timer)
 //        binding.startStopButton.icon = getDrawable(R.drawable.ic_baseline_play_arrow_24)
         timerStarted = false
         requireActivity().stopService(serviceIntent)
@@ -78,7 +79,7 @@ class TimerFragment : Fragment() {
             NavigationActivity.time = intent.getDoubleExtra(TimerService.TIME_EXTRA, 0.0)
             binding.tvCountdownTimer.text =
                 TimerService.getTimeStringFromDouble(NavigationActivity.time)
-            binding.btnStartTimer.text = "Stop"
+            binding.btnStartTimer.text = context.getString(R.string.stop_timer)
             timerStarted = true
         }
     }

@@ -33,6 +33,7 @@ data class EmployeeEntity(
     @SerializedName("company_info")
     @ColumnInfo(name = "company_info")
     val companyInfo: CompanyInfo,
+    val age: String?
 ) : Serializable
 
 

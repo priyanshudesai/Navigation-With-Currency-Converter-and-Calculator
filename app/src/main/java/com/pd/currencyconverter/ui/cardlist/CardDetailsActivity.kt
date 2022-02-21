@@ -84,7 +84,7 @@ class CardDetailsActivity : AppCompatActivity() {
 
         val currentDateFormat = SimpleDateFormat(ConstantUtils.CURRENT_DATE_FORMAT)
         val changedDateFormat = SimpleDateFormat(ConstantUtils.CHANGED_DATE_FORMAT)
-        val date: Date = currentDateFormat.parse(data.created_at.subSequence(0, 10).toString())
+        val date: Date = currentDateFormat.parse(data.createdAt.subSequence(0, 10).toString())
         val finalDate: String = changedDateFormat.format(date)
 
         binding.tvCreatedAtCardDetails.text = finalDate

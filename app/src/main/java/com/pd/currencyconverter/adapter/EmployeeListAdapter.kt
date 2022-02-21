@@ -6,6 +6,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -23,7 +24,8 @@ import com.pd.currencyconverter.utils.FirebaseAnalyticsHelper
 class EmployeeListAdapter(
     private var mContext: Context,
     private var mActivity: Activity,
-    private var listEmployee: List<EmployeeEntity>?
+    private var listEmployee: MutableList<EmployeeEntity>?,
+    private var mCommunication: FragmentCommunication
 ) :
     RecyclerView.Adapter<EmployeeListAdapter.ViewHolder>() {
 
@@ -56,6 +58,13 @@ class EmployeeListAdapter(
             )
         }
 
+        viewHolder.deleteIconCard.setOnClickListener {
+//            listEmployee = ArrayList<EmployeeEntity>()
+            listEmployee?.removeAt(viewHolder.adapterPosition)
+            notifyDataSetChanged()
+            mCommunication.respond(listEmployee?.size.toString())
+        }
+
         return viewHolder
     }
 
@@ -79,7 +88,7 @@ class EmployeeListAdapter(
         return listEmployee!!.size
     }
 
-    fun filterList(filterList: List<EmployeeEntity>?) {
+    fun filterList(filterList: MutableList<EmployeeEntity>) {
         listEmployee = filterList
         notifyDataSetChanged()
     }
@@ -91,5 +100,10 @@ class EmployeeListAdapter(
         var nameCompany: TextView = itemView.findViewById(R.id.tv_companyName_cardHolder)
         var cardView: CardView = itemView.findViewById(R.id.cv_card_cardHolder)
         var profileIconEmployee: ImageView = itemView.findViewById(R.id.iv_icon_cardHolder)
+        var deleteIconCard: ImageButton = itemView.findViewById(R.id.ib_delete_cardHolder)
+    }
+
+    interface FragmentCommunication {
+        fun respond(size: String)
     }
 }

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.download.DownloadFragment">
 
-
     <EditText
         android:id="@+id/et_url_download"
         android:layout_width="match_parent"
@@ -15,7 +14,8 @@
         android:layout_marginTop="8dp"
         android:backgroundTint="?android:textColorPrimary"
         android:fontFamily="@font/black_ops_one"
-        android:hint="Paste Link"
+        android:hint="@string/paste_link"
+        android:importantForAutofill="no"
         android:inputType="textUri"
         android:textColor="?android:textColorPrimary"
         android:textColorHint="?android:textColorPrimary"
@@ -28,7 +28,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Download"
+        android:fontFamily="@font/black_ops_one"
+        android:text="@string/menu_download"
         android:textColor="?attr/textColor"
         app:backgroundTint="?attr/btnColor"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,15 +38,15 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_card_download"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/card_ripple_effect"
         android:backgroundTint="?attr/cardBgColor"
         android:elevation="6dp"
+        android:visibility="gone"
         app:cardCornerRadius="24dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_download">
@@ -65,8 +66,8 @@
                 android:singleLine="false"
                 android:textColor="?attr/colorSecondary"
                 android:textSize="16sp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_progress_Download"

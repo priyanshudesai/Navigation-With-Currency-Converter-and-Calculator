@@ -62,5 +62,11 @@
     <string name="emirati_dirhams">અમીરાત દિરહામ</string>
     <string name="australian_dollar">ઓસ્ટ્રેલિયન ડોલર</string>
     <string name="menu_alarm">એલાર્મ</string>
+    <string name="menu_timer">ટાઈમર</string>
+    <string name="menu_download">ડાઉનલોડ</string>
     <string name="token">ટોકન</string>
+    <string name="paste_link">લિંક પેસ્ટ કરો</string>
+    <string name="start_timer">ટાઈમર શરૂ કરો</string>
+    <string name="stop_timer">ટાઈમર રોકો</string>
+    <string name="reset_timer">ટાઈમર રીસેટ કરો</string>
 </resources>

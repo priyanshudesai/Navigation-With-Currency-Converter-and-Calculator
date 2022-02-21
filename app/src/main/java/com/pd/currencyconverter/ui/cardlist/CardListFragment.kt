@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.pd.currencyconverter.R
 import com.pd.currencyconverter.adapter.EmployeeListAdapter
+import com.pd.currencyconverter.adapter.EmployeeListAdapter.FragmentCommunication
 import com.pd.currencyconverter.api.Api
 import com.pd.currencyconverter.api.ApiClient
 import com.pd.currencyconverter.databinding.FragmentCardListBinding
@@ -23,10 +24,11 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class CardListFragment : Fragment() {
     private var _binding: FragmentCardListBinding? = null
     private val binding get() = _binding!!
-    var listEmployee: List<EmployeeEntity>? = null
+    var listEmployee: MutableList<EmployeeEntity>? = null
     var listAdapter: EmployeeListAdapter? = null
     lateinit var cardListViewModel: CardListViewModel
 
@@ -45,7 +47,8 @@ class CardListFragment : Fragment() {
                 EmployeeListAdapter(
                     it1,
                     requireActivity(),
-                    listEmployee
+                    listEmployee,
+                    communication
                 )
             }
             binding.rvCardFrag.adapter = listAdapter
@@ -71,6 +74,14 @@ class CardListFragment : Fragment() {
             }
         }
         return root
+    }
+
+    var communication: FragmentCommunication = object : FragmentCommunication {
+        override fun respond(size: String) {
+            Log.e("TAG", "respond: $size")
+            binding.tvTotalCardFrag.text =
+                size + getString(R.string.cards_total)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,7 +117,7 @@ class CardListFragment : Fragment() {
                 try {
                     if (response.body()?.success == true) {
                         Log.e("TAG", "API CALL")
-                        var newList: List<EmployeeEntity> = response.body()!!.data
+                        var newList: MutableList<EmployeeEntity> = response.body()!!.data
 //                        Collections.reverse(listEmployee)
 //                        listAdapter =
 //                            activity?.let { EmployeeListAdapter(it, listEmployee) }
@@ -146,16 +157,16 @@ class CardListFragment : Fragment() {
 
     private fun filter(text: String) {
         if (listEmployee != null && listEmployee?.isNotEmpty() == true) {
-            val filteredList: List<EmployeeEntity> =
+            val filteredList: MutableList<EmployeeEntity> =
                 listEmployee!!.filter { item ->
                     item.firstName.trim().lowercase().startsWith(text.lowercase()) ||
                             item.lastName.trim().lowercase().startsWith(text.lowercase()) ||
                             item.designation.trim().lowercase().startsWith(text.lowercase()) ||
                             item.companyInfo.name.trim().lowercase().startsWith(text.lowercase())
-                }
+                } as MutableList<EmployeeEntity>
 
             if (filteredList.isEmpty()) {
-                listAdapter?.filterList(emptyList())
+                listAdapter?.filterList(mutableListOf())
                 Toast.makeText(context, ConstantUtils.MSG_NO_DATA_FOUND, Toast.LENGTH_SHORT).show()
             } else {
                 listAdapter?.filterList(filteredList)

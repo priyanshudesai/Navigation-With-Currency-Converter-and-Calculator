@@ -88,7 +88,13 @@
     <string name="_0" translatable="false">0</string>
     <string name="dot" translatable="false">.</string>
     <string name="menu_alarm">Alarm</string>
+    <string name="menu_timer">Timer</string>
     <string name="menu_download">Download</string>
     <string name="my_transition" translatable="false">MyTransition</string>
     <string name="token">Token</string>
+    <string name="paste_link">Paste Link</string>
+    <string name="_00_00_00" translatable="false">00:00:00</string>
+    <string name="start_timer">Start Timer</string>
+    <string name="stop_timer">Stop Timer</string>
+    <string name="reset_timer">Reset Timer</string>
 </resources>
